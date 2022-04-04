@@ -1,0 +1,16 @@
+.FuenteGrande{
+  font-size: xx-large;
+  color: black;
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+
+}
+
+.FuentePeque{
+  font-size: large;
+  color: black;
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+}

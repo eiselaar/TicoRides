@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-ES">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TicoRides</title>
+        <link rel="stylesheet" type="text/css" href="Styles/StyleAddRide.css">
+  
+    <body>
+        <form>
+            <img src="Imag/imagenRide.jpg">   <!--IMAGEN DEL PAGINA AÑADIR-->
+            <ul class="menu">       <!--MENU DEL RIDE-->
+                <li>
+                    <a href="../Dashboard/Tablero.html">Tablero</a>     <!--Direccion tablero-->
+                </li>
+                <li>
+                    <a href="../Rides/Ride.html">Ride</a>     <!--Direccion Ride-->
+                </li>
+                <li>
+                    <a href="../Setting/Configuraciones.html">Configuraciones</a>      <!--Direccion Configuraciones-->
+                </li>
+            </ul>
+            <div id="divRuta">     <!--Menu de seguimiento de ingreso-->
+                <p>
+                    <a href="Tablero.html">Tablero</a>  &gt;
+                    <a href="Ride.html">Ride</a> &gt; Añadir
+                </p>
+            </div>
+            <div id="divD">     <!--Bienvenida-->
+                <h3> Bienvenido</h3>
+                <h4>Usuario</h4>
+                <img class="imgUsu" src="Imag/ImaUsu.png">
+            </div>
+            <div>     <!--Ride-->
+                <h2> Rides</h2>
+                <label>Nombre Ride</label>
+                <br>
+                <input type="text" name="nombreride" size="30">
+                <br>
+                <br>
+            </div>
+            <div id="divI">     <!--Lugar de Ride-->
+                <label>Comienzo de Ride</label> 
+                <br>
+                <input type="text" name="ComienzoRide" size="30">  <!--Lugar Comienzo Ride-->
+                <br>
+                <br>
+            </div>
+            <div id="divDD">
+                <label>Fin Ride</label>
+                <br>
+                <input type="text" name="FinRide" size="30">  <!--Lugar Fin de Ride-->
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div id="divI">  <!--Apartado Descripsion-->
+                <label> Descripción</label>
+                <br>
+                <textarea type="text"> Añade aqui la descripción de tu ride!</textarea>
+                <br>
+            </div>
+            <div>
+                <p>____________________________________________________________________________________________________</p>
+                <label clases="">¿Cuándo?</label>
+                <br>
+                <br>
+            </div>
+            <div id="divI">
+                <label>Salida</label>
+                <br>
+                <input type="time" name="salida" value="07:22">
+                <br>
+                <br>
+                <label>Tiempo estimado de llegada</label>
+                <br>
+                <input type="time" name="salida" value="08:30">
+            </div>
+            <div id="divDD">
+                <label>Seleccione el día</label>
+                <br>
+                <input type="checkbox" name="Lu" value="Lunes">
+                <label>Lunes</label>
+                <br>
+                <input type="checkbox" name="Ma" value="Martes">
+                <label>Martes</label>
+                <br>
+                <input type="checkbox" name="Mi" value="Miercoles">
+                <label>Miércoles</label>
+                <br>
+                <input type="checkbox" name="Ju" value="Jueves">
+                <label>Jueves</label>
+                <br>
+                <input type="checkbox" name="Vi" value="Viernes">
+                <label>Viernes</label>
+                <br>
+                <input type="checkbox" name="Sab" value="Sabado">
+                <label>Sábado</label>
+                <br>
+                <input type="checkbox" name="Do" value="Domingo">
+                <label>Domingo</label>
+                <br>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div id="divI">
+                <a href="../Dashboard/Tablero.html">Cancelar</a>
+            </div>
+            <div id="divD">
+                <button> Guardar</button>
+            </div>
+        </form>
+    </body>
+</html>

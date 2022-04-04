@@ -1,0 +1,159 @@
+body {
+  font-family: arial;
+  float: left;
+}
+
+img {
+  width: 600px;
+  height: 300px;
+}
+
+.imgUsu {
+  width: 30px;
+  height: 20px;
+  float: right;
+  padding-top: 20px;
+  padding-left: 14px;
+
+}
+
+#divD{
+  float: right;
+  width: 300px; 
+  display: flex;
+  
+}
+
+#divRuta{
+  text-align: left;
+}
+
+.menu {
+  font-weight: 600;
+  list-style: none;
+  padding: 0;
+  background: #646666;
+  width: 90%;
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  border-radius: 35px;
+
+}
+
+.menu li a {
+  text-decoration: none;
+  color: white;
+  padding: 20px;
+  display: block;
+}
+
+.menu li {
+  display: inline-block;
+  text-align: center;
+}
+
+.menu li a:hover {
+  background: #548fef;
+}
+
+h2 {
+  font-family: Arial;
+
+}
+
+#h3Bien{
+	font-family: Arial;
+	text-align:center;
+  padding-left: 14px;
+}
+
+.h3 {
+  font-family: Arial;
+  float: right;
+}
+
+#h4 {
+  font-family: Arial;
+  text-align: left;
+}
+
+#h4Usu {
+	font-family: Arial;
+	text-align: right;
+  padding-left: 14px;
+}
+
+table {
+  border: black;
+  align-content: center;
+  text-align: center;
+  border-width: 1px;
+  border-style: solid;
+  border-collapse: collapse;
+
+
+}
+
+th {
+  background-color: rgb(184, 200, 206);
+  width: 250px;
+  height: 50px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+td {
+  background-color: rgb(220, 224, 226);
+  width: 320px;
+  height: 50px;
+  border-style: solid;
+  border-width: 1px;
+
+}
+
+.btn1 {
+  font-weight: 600;
+  font-size: 15px;
+  color: #f6f6f6;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #3244e7;
+  border-color: #949393;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 15px;
+}
+
+.btn2 {
+  font-weight: 600;
+  font-size: 15px;
+  color: #f6f6f6;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #eb2f2f;
+  border-color: #949393;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 15px;
+}
+
+#btn3 {
+  font-weight: 600;
+  font-size: 15px;
+  color: #f6f6f6;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #5dbe25;
+  border-color: #949393;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 15px;
+
+}

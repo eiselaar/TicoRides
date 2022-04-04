@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-ES">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TicoRides</title>
+        <!-- <link rel="stylesheet" type="text/css" href="Styles/StylesLogin.css"> Referencia al CSS  -->
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+        <!-- logos -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      
+    </head>
+    <body>
+          <!--form resposive -->
+        <form class="resposive-form ">
+          
+               <!-- imagen responsive -->
+            <div class="float center">
+                <img class="responsive-img " src="Imag/imagenRide.jpg">
+                <br></br>
+            </div>
+
+             <!-- Caja de Ingreso de Datos/ valign-wrapper(centrar contenido) -->
+            <div class="valign-wrapper">
+                <div class="row ">
+                     <!-- Username -->
+                    <form class="col s12 valign-wrapper">
+                        <div class="row">
+                            <div class="input-field col s12 ">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="Usuario" type="text" class="validate ">
+                                <label for="Usuario">Usuario</label>
+                            </div>
+                        </div>
+                         <!-- Contraseña -->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">lock_outline</i>
+                                <input id="Contra" type="password" class="validate">
+                                <label for="Contra">Contraseña</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+             <!-- Preguntar si es usuario o no?  -->
+            <div class="text-aling center">
+                <p> ¿No eres usuario? <a href="../Registro/RegistrodeUsuarios.html"> Registrate aquí</a></p>
+                <br></br>
+            </div>
+
+             <!-- Boton login  -->
+            <div class="float center">
+                <a href="../Dashboard/Tablero.html" class=" waves-effect waves-light btn-large cyan pulse" onclick="validarusuario()">Login</a>
+            </div>
+
+             <!-- Referencia JS USUARIOS  -->
+            <script src="../js/usuarios.js"></script>
+        </form>
+    </body>
+</html>
