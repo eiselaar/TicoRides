@@ -1,3 +1,5 @@
+/*
+
 body {
   font-family: arial;
   float: left;
@@ -8,25 +10,6 @@ img {
   height: 300px;
 }
 
-.imgUsu {
-  width: 30px;
-  height: 20px;
-  float: right;
-  padding-top: 20px;
-  padding-left: 14px;
-
-}
-
-#divD{
-  float: right;
-  width: 300px; 
-  display: flex;
-  
-}
-
-#divRuta{
-  text-align: left;
-}
 
 .menu {
   font-weight: 600;
@@ -157,3 +140,35 @@ td {
   border-radius: 15px;
 
 }
+*/
+
+.divRuta{
+  text-align: left;
+}
+
+.imgUsu {
+	width: 30px;
+	height: 20px;
+
+}
+
+.FuenteGrande{
+	font-size: x-large;
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+  
+  }
+  
+  .FuentePeque{
+	font-size: large;
+	color: black;
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: left;
+  }
+
+  .Tamaño {
+    width: 1550px;
+    height: 550px;
+  }

@@ -1,77 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TicoRide</title>
-    <link rel="stylesheet" type="text/css" href="Styles/SylesS.css">
-</head>
-<body>
-    <form >
-        <img src="Imag/imagenRide.jpg">
-        
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TicoRide</title> <!-- Referencia al CSS -->
+         <link rel="stylesheet" type="text/css" href="Styles/SylesS.css">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!-- logos -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body>
+        <form class="responsive-form">
+            <!-- Menu-->
+            <nav > 
+                <div class="nav-wrapper  blue-grey">
+                    <ul id="nav-mobile" class="left hide-on-med-and-down">
+                        <li>
+                            <a href="../Dashboard/Tablero.html">Tablero</a> <!-- Referencia a Tablero -->
+                        </li>
+                        <li>
+                            <a href="../Rides/Ride.html">Ride</a> <!-- Referencia a Ride -->
+                        </li>
+                        <li>
+                            <a href="../Setting/Configuraciones.html">Configuraciones</a> <!-- Referencia a Configuraciones -->
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+              <!-- Imagen-->
+            <div>
+                <img class="responsive-img " src="Imag/imagenRide.jpg">
+                <br></br>
+            </div>
+
        
-    <ul class="menu">
-         <li><a href="../Dashboard/Tablero.html">Tablero</a></li>
-         <li><a href="../Rides/Ride.html">Ride</a></li>
-          <li><a href="../Setting/Configuraciones.html">Configuraciones</a></li>	
-    </ul>	
-    
-    
-    <div id="divRuta">
-        <p><a href="Tablero.html">Tablero</a> &gt; Configuraciones</p>
-    </div>
+            <!-- Seccion de Informacion-->
+            <section>
+                <div class="row">
+                       <!-- Txt Configuraciones-->
+                    <div class="col s12 m6 l3">
+                        <p class="FuenteGrande text-aling left">Configuraciones</p>
+                    </div>
+                       <!-- Sin informacion-->
+                    <div class="col s12 m6 l3"><p></p></div>
+                    <div class="col s12 m6 l3"><p> </p></div>
+                       <!-- Seccion Bienvenida al Usuario-->
+                    <div class="col s12 m6 l3">
+                        <p class="text-aling left"> Bienvenido Usuario </p> 
+                        <p class="text-aling left">  <img class="circle imgUsu float right" src="Imag/ImaUsu.png"> </p> 
+                    </div>
+                </div>     
+            </section> 
+            
+             <!-- Seguimiento miga de pan de las secciones del menu-->
+             <div>     <!--Menu de seguimiento de ingreso-->
+                <p  class="divRuta FuenteGrande">
+                    <a href="../Dashboard/Tablero.html">Tablero</a>  &gt;
+                    <a href="Configuraciones.html">Configuraciones</a> 
+                </p>
+            </div>
+                
+             
 
-    <div id="divD">
-        <h3> Bienvenido</h3> 
-        <br>
-        <h4>Usuario</h4>
-        <img class="imgUsu" src="Imag/ImaUsu.png">
-   </div>
-          
-    <div>
-        <h2> Configuraciones </h2>
-        <br>
-        <br> 
-    </div>
-    
-    <div>
-        <label>Nombre Completo</label>
-        <br>
-        <br>
-        <input type="text" name="nombreComp"  >
-        <br>
-        <br>
-    </div>
+            <!-- Caja de Ingreso de Dato Configuraciones/ valign-wrapper(centrar contenido) -->
+                 <div>
+                    <div class="row">
+                         <!-- Nombre Completo -->
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s8" >
+                                       <i class="material-icons prefix">account_circle</i>
+                                        <input type="text" name="nombreComp" class="validate ">
+                                        <label for="nombreComp">Nombre Completo</label>
+                                </div>
+                            </div>
+                             <!-- Velocidad -->
+                            <div class="row">
+                                <div class="input-field col s8">
+                                    <i class="material-icons prefix">time_to_leave</i>
+                                    <input type="text" name="VelocidadMed" placeholder="60km/h" class="validate">
+                                    <label for="VelocidadMed">Velocidad Media</label>
+                                </div>
+                            </div>
+                             <!-- Descripsion -->
+                             <div class="row">
+                                <div class="input-field col s8">
+                                    <i class="material-icons prefix">short_text</i>
+                                    <textarea type="text" name="TextAre" class="materialize-textarea"></textarea>
+                                    <label for="TextAre">Descripción</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
-    <div>
-        <label>Velocidad Media</label>
-        <br>
-        <br>
-        <input type="text" name="VelocidadMed" placeholder="60km/h">
-        <br>
-        <br>
-    </div>
-   
-    <div>
-        <label>Sobre mi</label>
-        <br>
-        <br>
-        <textarea type="text" name="TextAre"> Escribe algo sobre ti </textarea>
-        <br>
-        <br>
-    </div>
-    
-    <div id="divI">
-        <a href="../Dashboard/Tablero.html">Cancelar</a>
-    </div>
-   
-    <div id="divD">
-        <button> Guardar </button> 
-    </div>
-    
+             <!-- Boton Cancelar -->
+            <div class="float left">
+            <a href="../Dashboard/Tablero.html" class="btn waves-effect waves-light btn-largered card-panel red darken-4 "> Cancelar </a>
+            </div>
 
-</form>   
-</body>
+             <!-- Boton Guardar -->
+            <div class="float center">
+                <button class=" waves-effect waves-light btn-large light-green accent-4"> Guardar</button>
+            </div>
+            <br>
+            <br>
+        </form>
+         <!-- Referencia al JS -->
+    </body>
 </html>

@@ -1,79 +1,149 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>TicoRide</title>
-		<link rel="stylesheet" type="text/css" href="Styles/StyleDash.css">
-	</head>
-	<body>
-		<form >
-		
-		<img src="Imag/imagenRide.jpg">
-		
-			
-        <div>
-			<ul class="menu">
-				<li><a href="../Dashboard/Tablero.html">Tablero</a></li>
-				<li><a href="../Rides/Ride.html">Ride</a></li>
-				<li><a href="../Setting/Configuraciones.html">Configuraciones</a></li>	
-			</ul>
-		</div>
-		
-		<div id="divD">
-            <h3 id="h3Bien"> Bienvenido</h3> 
+    <head>
+        <meta charset="UTF-8">
+        <title>TicoRide</title>
+        <link rel="stylesheet" type="text/css" href="Styles/StyleDash.css">
+        <!-- Referencia al CSS -->
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!-- logos -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body>
+        <form>
+            <!-- Menu-->
+            <nav>
+                <div class="nav-wrapper  blue-grey">
+                    <ul id="nav-mobile" class="left hide-on-med-and-down">
+                        <li>
+                            <a href="../Dashboard/Tablero.html">Tablero</a>
+                            <!-- Referencia a Tablero -->
+                        </li>
+                        <li>
+                            <a href="../Rides/Ride.html">Ride</a>
+                            <!-- Referencia a Ride -->
+                        </li>
+                        <li>
+                            <a href="../Setting/Configuraciones.html">Configuraciones</a>
+                            <!-- Referencia a Configuraciones -->
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- Imagen-->
+            <div>
+                <img class="responsive-img " src="Imag/imagenRide.jpg">
+                <br></br>
+            </div>
+            <!-- Seccion de Informacion-->
+            <section>
+                <div class="row">
+                    <!-- Txt Tablero-->
+                    <div class="col s12 m6 l3">
+                        <p class="FuenteGrande text-aling left"> Tablero</p>
+                    </div>
+                    <!-- Sin informacion-->
+                    <div class="col s12 m6 l3">
+                        <p></p>
+                    </div>
+                    <div class="col s12 m6 l3">
+                        <p></p>
+                    </div>
+                    <!-- Seccion Bienvenida al Usuario-->
+                    <div class="col s12 m6 l3">
+                        <p class="text-aling left"> Bienvenido Usuario</p>
+                        <p class="text-aling left">
+                            <img class="circle imgUsu float right" src="Imag/ImaUsu.png">
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!--Menu de seguimiento de ingreso-->
+            <div>
+                <p class=" divRuta ">
+                    <a class="FuenteGrande" href="../Dashboard/Tablero.html">Tablero</a>
+                    &gt;
+                </p>
+            </div>
+            <!--Informacion-->
+            <div class="float left">
+                <h4 class="FuentePeque"> MIS RIDES</h4>
+            </div>
             <br>
-            <h4 id="h4Usu">Usuario</h4>
-            <img class="imgUsu" src="Imag/ImaUsu.png">
-        </div>
-
-		<div id="divRuta">
-            <p><a href="Tablero.html">Tablero</a> &gt;</p>
-        </div>
-
-	    <div>
-			<h2> Tablero </h2>
-			<br>
-			<h3> Mis Rides </h3	>
-		</div>
-		
-			
-		<div>
-			<fieldset>
-				<h4 id="h4">Tu lista actual de viajes</h4>
-					<p align="right"><a href="../Rides/AñadirRide.html"><input  id= "btn3" type="button" value= "+"/></a></p>
-						<table>
-							<tr>
-								<th >Nombre</th>
-								<th >Punto de Partida</th>
-								<th >Destino</th>
-								<th >Accion</th>
-							</tr>
-							<tr>
-								<td>Brete</td>
-								<td>San Isidro</td>
-								<td>Ciudad Quesada</td>
-								<td> <a href="../Rides/EditarRide.html"><input  class= "btn1" type="button" value= "Editar"/></a> | <input class= "btn2" type="button" value= "Eliminar"/></td>
-							</tr>
-							<tr>
-								<td>Casa</td>
-								<td>La Cruz</td>
-								<td>Florencia</td>
-								<td><a href="../Rides/EditarRide.html"><input  class= "btn1" type="button" value= "Editar"/></a> | <input class= "btn2" type="button" value= "Eliminar"/></td>
-							</tr>
-							<tr>
-								<td>Oficina Chepe</td>
-								<td>Sucre</td>
-								<td>Ciudad Quesada</td>
-								<td><a href="../Rides/EditarRide.html"><input  class= "btn1" type="button" value= "Editar"/></a> | <input class= "btn2" type="button" value= "Eliminar"/></td>
-							</tr>
-						</table>
-		              <br>
-					<p align="right"><a href="../Rides/AñadirRide.html"><input  id= "btn3" type="button" value= "+"/></a></p>
-			</fieldset>		
-		</div>
-
-
-		</form>
-       
-	</body>
+            <br>
+            <br>
+            <div>
+                <fieldset class="responsive-field Tamaño">
+                    <h4 class="FuentePeque">Tu lista actual de viajes</h4>
+                    <p align="right">
+                        <a class="btn-floating btn-large waves-effect waves-light light-green lighten-2" href="../Rides/AñadirRide.html">
+                            <i class="material-icons">add</i>
+                        </a>
+                    <div class="row">
+                        <div class=" input-field col s8">
+                           
+                            </p>
+                            <table class="striped responsive-table">
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Punto de Partida</th>
+                                    <th>Destino</th>
+                                    <th>Accion</th>
+                                </tr>
+                                <tr>
+                                    <td>Brete</td>
+                                    <td>San Isidro</td>
+                                    <td>Ciudad Quesada</td>
+                                    <td>
+                                        <a class="waves-effect waves-light light-blue darken-3 btn" href="../Rides/EditarRide.html">
+                                            <i class="material-icons right">edit</i>Editar
+                                        </a>
+                                        <a class="waves-effect waves-light  red darken-4 btn">
+                                            <i class="material-icons right">delete</i>Eliminar
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Casa</td>
+                                    <td>La Cruz</td>
+                                    <td>Florencia</td>
+                                    <td>
+                                        <a class="waves-effect waves-light light-blue darken-3 btn" href="../Rides/EditarRide.html">
+                                            <i class="material-icons right">edit</i>Editar
+                                        </a>
+                                        <a class="waves-effect waves-light  red darken-4 btn">
+                                            <i class="material-icons right">delete</i>Eliminar
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Oficina Chepe</td>
+                                    <td>Sucre</td>
+                                    <td>Ciudad Quesada</td>
+                                    <td>
+                                        <a class="waves-effect waves-light light-blue darken-3 btn" href="../Rides/EditarRide.html">
+                                            <i class="material-icons right">edit</i>Editar
+                                        </a>
+                                        <a class="waves-effect waves-light  red darken-4 btn">
+                                            <i class="material-icons right">delete</i>Eliminar
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <p align="right">
+                        <a class="btn-floating btn-large waves-effect waves-light light-green lighten-2" href="../Rides/AñadirRide.html">
+                            <i class="material-icons">add</i>
+                        </a>
+                    </p>
+                </fieldset>
+            </div>
+        </form>
+        <br>
+        <br>
+    </body>
 </html>

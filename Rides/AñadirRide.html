@@ -6,121 +6,233 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>TicoRides</title>
         <link rel="stylesheet" type="text/css" href="Styles/StyleAddRide.css">
-  
-    <body>
-        <form>
-            <img src="Imag/imagenRide.jpg">   <!--IMAGEN DEL PAGINA AÑADIR-->
-            <ul class="menu">       <!--MENU DEL RIDE-->
-                <li>
-                    <a href="../Dashboard/Tablero.html">Tablero</a>     <!--Direccion tablero-->
-                </li>
-                <li>
-                    <a href="../Rides/Ride.html">Ride</a>     <!--Direccion Ride-->
-                </li>
-                <li>
-                    <a href="../Setting/Configuraciones.html">Configuraciones</a>      <!--Direccion Configuraciones-->
-                </li>
-            </ul>
-            <div id="divRuta">     <!--Menu de seguimiento de ingreso-->
-                <p>
-                    <a href="Tablero.html">Tablero</a>  &gt;
-                    <a href="Ride.html">Ride</a> &gt; Añadir
-                </p>
-            </div>
-            <div id="divD">     <!--Bienvenida-->
-                <h3> Bienvenido</h3>
-                <h4>Usuario</h4>
-                <img class="imgUsu" src="Imag/ImaUsu.png">
-            </div>
-            <div>     <!--Ride-->
-                <h2> Rides</h2>
-                <label>Nombre Ride</label>
+        <!-- Referencia al CSS -->
+        <link rel="stylesheet" type="text/css" href="Styles/SylesS.css">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!-- logos -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <body>
+            <form>
+                <!-- Menu-->
+                <div class="navbar-fixed">
+                    <nav>
+                        <div class="nav-wrapper  blue-grey">
+                            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                                <li>
+                                    <a href="../Dashboard/Tablero.html">Tablero</a>
+                                    <!-- Referencia a Tablero -->
+                                </li>
+                                <li>
+                                    <a href="../Rides/Ride.html">Ride</a>
+                                    <!-- Referencia a Ride -->
+                                </li>
+                                <li>
+                                    <a href="../Setting/Configuraciones.html">Configuraciones</a>
+                                    <!-- Referencia a Configuraciones -->
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <!-- Imagen-->
+                <div>
+                    <img class="responsive-img " src="Imag/imagenRide.jpg">
+                    <br></br>
+                </div>
+                <!-- Seccion de Informacion-->
+                <section>
+                    <div class="row">
+                        <!-- Txt Tablero-->
+                        <div class="col s12 m6 l3">
+                            <p class="FuenteGrande text-aling left"> Rides</p>
+                        </div>
+                        <!-- Sin informacion-->
+                        <div class="col s12 m6 l3">
+                            <p></p>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            <p></p>
+                        </div>
+                        <!-- Seccion Bienvenida al Usuario-->
+                        <div class="col s12 m6 l3">
+                            <p class="text-aling left"> Bienvenido Usuario</p>
+                            <p class="text-aling left">
+                                <img class="circle imgUsu float right" src="Imag/ImaUsu.png">
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <!--Menu de seguimiento de ingreso-->
+                <div>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="col 6">
+                                <div>
+                                    <p class="text-aling left FuenteGrande">
+                                        <a href="Tablero.html">Tablero</a>
+                                        &gt;
+                                        <a href="Ride.html">Ride</a>
+                                        &gt; Añadir
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--Datos Añadir Ride-->
+                <div>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <!--Nombre Ride-->
+                                <div class="input-field col s8 ">
+                                    <i class="material-icons prefix">directions_car</i>
+                                    <input type="text" name="nombreride" class="validate ">
+                                    <label for="nombreride">Nombre del Ride</label>
+                                </div>
+                                <div class="col s12">
+                                    <div class="row">
+                                        <!--Inicio Ride-->
+                                        <div class="input-field col s4 ">
+                                            <i class="material-icons prefix">location_on</i>
+                                            <input type="text" name="ComienzoRide">
+                                            <label for="ComienzoRide">Inicio del Ride</label>
+                                        </div>
+                                        <div class="input-field col s1">
+                                            <button class="btn waves-effect waves-light card-panel blue-grey">
+                                                <i class="medium material-icons">map</i>
+                                            </div>
+                                            <!--Fin Ride-->
+                                            <div class="input-field col s4">
+                                                <i class="material-icons prefix">location_on</i>
+                                                <input type="text" name="FinRide">
+                                                <label for="FinRide">Fin del Ride</label>
+                                            </div>
+                                            <div class="input-field col s1">
+                                                <button class="btn waves-effect waves-light card-panel blue-grey">
+                                                    <i class="medium material-icons">map</i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Descripsion Ride-->
+                                    <div class="input-field col s8">
+                                        <i class="material-icons prefix">insert_comment</i>
+                                        <textarea
+                                            type="text"
+                                            name="TextAre"
+                                            class="materialize-textarea"
+                                            placeholder="Añade aqui la descripción de tu ride!"
+                                        ></textarea>
+                                        <label for="TextAre">Descripción</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--Division Ride-->
+                <p class="red-text">_________________________________________________________________________________________________________________________________________________________________________________________________</p>
+                <p class="FuentePeque">¿Cuándo?</p>
+                <!--Tiempos de Llegada y Seleccion de los dias-->
+                <div class="row">
+                    <!--Tiempos de Llegada-->
+                    <div class="col s6">
+                        <div class="row">
+                            <div class="input-field col s5">
+                                <div>
+                                    <label for="salida">Salida</label>
+                                    <input
+                                        type="time"
+                                        name="salida"
+                                        class="timepicker"
+                                        value="07:22"
+                                    >
+                                   
+                                </div>
+                                <div>
+                                    <label for="llegada">Llegada</label>
+                                    <input
+                                        type="time"
+                                        name="llegada"
+                                        class="timepicker"
+                                        value="08:30"
+                                    >
+                                  
+                                </div>
+                            </div>
+                            <!-- Seleccion de los dias-->
+                            <div class="col s6 push-s2">
+                                <div class="row">
+                                    <p class="FuentePeque">Seleccione el día</p>
+                                    <div class="input-field col s2">
+                                        <p>
+                                            <!--Lunes-->
+                                            <label>
+                                                <input type="checkbox">
+                                                <span>Lunes</span>
+                                            </label>
+                                        </p>
+                                        <p>
+                                            <!--Martes-->
+                                            <label>
+                                                <input type="checkbox">
+                                                <span>Martes</span>
+                                            </label>
+                                        </p>
+                                        <p>
+                                            <!--Miercoles-->
+                                            <label>
+                                                <input type="checkbox">
+                                                <span>Miércoles</span>
+                                            </label>
+                                        </p>
+                                        <p>
+                                            <!--Jueves-->
+                                            <label>
+                                                <input type="checkbox">
+                                                <span>Jueves</span>
+                                            </label>
+                                        </p>
+                                        <p>
+                                            <!--Viernes-->
+                                            <label>
+                                                <input type="checkbox">
+                                                <span>Viernes</span>
+                                            </label>
+                                        </p>
+                                        <p>
+                                            <!--Sabado-->
+                                            <label>
+                                                <input type="checkbox">
+                                                <span>Sábado</span>
+                                            </label>
+                                        </p>
+                                        <p>
+                                            <!--Domingo-->
+                                            <label>
+                                                <input type="checkbox">
+                                                <span>Domingo</span>
+                                            </label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Boton Cancelar -->
+                <div class="float left">
+                    <a href="../Dashboard/Tablero.html" class="btn waves-effect waves-light btn-largered card-panel red darken-4 "> Cancelar</a>
+                </div>
+                <!-- Boton Guardar -->
+                <div class="float center">
+                    <button class=" waves-effect waves-light btn-large light-green accent-4"> Guardar</button>
+                </div>
                 <br>
-                <input type="text" name="nombreride" size="30">
                 <br>
-                <br>
-            </div>
-            <div id="divI">     <!--Lugar de Ride-->
-                <label>Comienzo de Ride</label> 
-                <br>
-                <input type="text" name="ComienzoRide" size="30">  <!--Lugar Comienzo Ride-->
-                <br>
-                <br>
-            </div>
-            <div id="divDD">
-                <label>Fin Ride</label>
-                <br>
-                <input type="text" name="FinRide" size="30">  <!--Lugar Fin de Ride-->
-            </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div id="divI">  <!--Apartado Descripsion-->
-                <label> Descripción</label>
-                <br>
-                <textarea type="text"> Añade aqui la descripción de tu ride!</textarea>
-                <br>
-            </div>
-            <div>
-                <p>____________________________________________________________________________________________________</p>
-                <label clases="">¿Cuándo?</label>
-                <br>
-                <br>
-            </div>
-            <div id="divI">
-                <label>Salida</label>
-                <br>
-                <input type="time" name="salida" value="07:22">
-                <br>
-                <br>
-                <label>Tiempo estimado de llegada</label>
-                <br>
-                <input type="time" name="salida" value="08:30">
-            </div>
-            <div id="divDD">
-                <label>Seleccione el día</label>
-                <br>
-                <input type="checkbox" name="Lu" value="Lunes">
-                <label>Lunes</label>
-                <br>
-                <input type="checkbox" name="Ma" value="Martes">
-                <label>Martes</label>
-                <br>
-                <input type="checkbox" name="Mi" value="Miercoles">
-                <label>Miércoles</label>
-                <br>
-                <input type="checkbox" name="Ju" value="Jueves">
-                <label>Jueves</label>
-                <br>
-                <input type="checkbox" name="Vi" value="Viernes">
-                <label>Viernes</label>
-                <br>
-                <input type="checkbox" name="Sab" value="Sabado">
-                <label>Sábado</label>
-                <br>
-                <input type="checkbox" name="Do" value="Domingo">
-                <label>Domingo</label>
-                <br>
-            </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div id="divI">
-                <a href="../Dashboard/Tablero.html">Cancelar</a>
-            </div>
-            <div id="divD">
-                <button> Guardar</button>
-            </div>
-        </form>
-    </body>
-</html>
+            </body>
+        </html>
