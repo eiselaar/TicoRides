@@ -8,61 +8,61 @@
         <!-- <link rel="stylesheet" type="text/css" href="CSS/StylesLogin.css"> Referencia al CSS  -->
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
         <!-- logos -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      
     </head>
     <body>
-          <!--form resposive -->
+        <!--form resposive -->
         <form class="resposive-form ">
-          
-               <!-- imagen responsive -->
+            <!-- imagen responsive -->
             <div class="float center">
                 <img class="responsive-img " src="Ima/imagenRide.jpg">
                 <br></br>
             </div>
-
-             <!-- Caja de Ingreso de Datos/ valign-wrapper(centrar contenido) -->
+            <!-- Caja de Ingreso de Datos/ valign-wrapper(centrar contenido) -->
             <div class="valign-wrapper">
                 <div class="row ">
-                     <!-- Username -->
+                    <!-- Username -->
                     <form class="col s12 valign-wrapper">
                         <div class="row">
                             <div class="input-field col s12 ">
                                 <i class="material-icons prefix">account_circle</i>
-                                <input id="Usuario" type="text" class="validate ">
+                                <input id="user" type="text" class="validate ">
                                 <label for="Usuario">Usuario</label>
                             </div>
                         </div>
-                         <!-- Contraseña -->
+                        <!-- Contraseña -->
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">lock_outline</i>
-                                <input id="Contra" type="password" class="validate">
+                                <input id="pass" type="password" class="validate">
                                 <label for="Contra">Contraseña</label>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-
-             <!-- Preguntar si es usuario o no?  -->
+            <!-- Preguntar si es usuario o no?  -->
             <div class="text-aling center">
-                <p> ¿No eres usuario? <a href="RegistrodeUsuarios.html"> Registrate aquí</a></p>
+                <p> ¿No eres usuario?
+                    <a href="RegistrodeUsuarios.html"> Registrate aquí</a>
+                </p>
                 <br></br>
             </div>
-
-             <!-- Boton login  -->
+            <!-- Boton login  -->
             <div class="float center">
-                <a href="Tablero.html" class=" waves-effect waves-light btn-large cyan pulse" onclick="validarusuario()">Login</a>
+                <button
+                    class="btn blue"
+                    type="button"
+                    value="Ingresar"
+                    id="Ingresar"
+                    onclick="validarusuario()"
+                >Ingresar</button>
             </div>
-
-             <!-- Referencia JS USUARIOS  -->
-            <script src="../js/usuarios.js"></script>
         </form>
+        <!-- Referencia JS USUARIOS  -->
+        <script src="js/login.js"></script>
     </body>
 </html>

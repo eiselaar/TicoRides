@@ -152,6 +152,12 @@ td {
 
 }
 
+
+.logo {
+	width: 30px;
+	height: 50px;
+
+}
 .FuenteGrande{
 	font-size: x-large;
 	font-weight: normal;

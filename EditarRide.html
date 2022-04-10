@@ -1,120 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TicoRides</title>
-    <link rel="stylesheet" type="text/css" href="CSS/StyleEditarRide.css">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- logos -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body>
-    <form >
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TicoRides</title>
+        <link rel="stylesheet" type="text/css" href="CSS/StyleEditarRide.css">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!-- logos -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body onload="Nameloger()">
         <form>
-            <!-- Menu-->
-            <div class="navbar-fixed">
-                <nav>
-                    <div class="nav-wrapper  blue-grey">
-                        <ul id="nav-mobile" class="left hide-on-med-and-down">
-                            <li>
-                                <a href="Tablero.html">Tablero</a>
-                                <!-- Referencia a Tablero -->
-                            </li>
-                            <li>
-                                <a href="Ride.html">Ride</a>
-                                <!-- Referencia a Ride -->
-                            </li>
-                            <li>
-                                <a href="Configuraciones.html">Configuraciones</a>
-                                <!-- Referencia a Configuraciones -->
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-            <!-- Imagen-->
-            <div>
-                <img class="responsive-img " src="Ima/imagenRide.jpg">
-                <br></br>
-            </div>
-            <!-- Seccion de Informacion-->
-            <section>
-                <div class="row">
-                    <!-- Txt Tablero-->
-                    <div class="col s12 m6 l3">
-                        <p class="FuenteGrande text-aling left"> Rides</p>
-                    </div>
-                    <!-- Sin informacion-->
-                    <div class="col s12 m6 l3">
-                        <p></p>
-                    </div>
-                    <div class="col s12 m6 l3">
-                        <p></p>
-                    </div>
-                    <!-- Seccion Bienvenida al Usuario-->
-                    <div class="col s12 m6 l3">
-                        <p class="text-aling left"> Bienvenido Usuario</p>
-                        <p class="text-aling left">
-                            <img class="circle imgUsu float right" src="Ima/ImaUsu.png">
-                        </p>
-                    </div>
-                </div>
-            </section>
-            <!--Menu de seguimiento de ingreso-->
-            <div>
-                <div class="row">
-                    <form class="col s12">
-                        <div class="col 6">
-                            <div>
-                                <p class="text-aling left FuenteGrande">
+                <!-- Menu-->
+                <div class="navbar-fixed">
+                    <nav class="blue-grey">
+                        <div class="nav-wrapper container">
+                            <a href="#" class="brand-logo right">TicoRides</a>
+                            <ul class="left">
+                                <li>
                                     <a href="Tablero.html">Tablero</a>
-                                    &gt;
-                                    <a href="Ride.html">Ride</a>
-                                    &gt; Añadir
-                                </p>
-                            </div>
+                                </li>
+                                <li>
+                                    <a href="Ride.html">Rides</a>
+                                </li>
+                                <li>
+                                    <a href="Configuraciones.html">Configuraciones</a>
+                                </li>
+                            </ul>
                         </div>
-                    </form>
+                    </nav>
                 </div>
-            </div>
-            <!--Datos Añadir Ride-->
-            <div>
-                <div class="row">
-                    <form class="col s12">
-                        <div class="row">
-                            <!--Nombre Ride-->
-                            <div class="input-field col s8 ">
-                                <i class="material-icons prefix">directions_car</i>
-                                <input type="text" name="nombreride" class="validate ">
-                                <label for="nombreride">Nombre del Ride</label>
+                <!-- Imagen-->
+                <div>
+                    <img class="responsive-img " src="Ima/imagenRide.jpg">
+                    <br></br>
+                </div>
+                <!-- Seccion de Informacion-->
+                <section>
+                    <div class="row">
+                        <!-- Txt Tablero-->
+                        <div class="col s12 m6 l3">
+                            <p class="FuenteGrande text-aling left"> Rides</p>
+                        </div>
+                        <!-- Sin informacion-->
+                        <div class="col s12 m6 l3">
+                            <p></p>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            <p></p>
+                        </div>
+                        <!-- Seccion Bienvenida al Usuario-->
+                        <div class="col s12 m6 l3">
+                            <p class="text-aling left">
+                                Bienvenido
+                                <a id="user_name" class="user_name"> Usuario</a>
+                            </p>
+                            <p class="text-aling left">
+                                <img class="circle imgUsu float right" src="Ima/ImaUsu.png">
+                        </div>
+                    </div>
+                </section>
+                <!--Menu de seguimiento de ingreso-->
+                <div>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="col 6">
+                                <div>
+                                    <p class="text-aling left FuenteGrande">
+                                        <a href="Tablero.html">Tablero</a>
+                                        &gt;
+                                        <a href="Ride.html">Ride</a>
+                                        &gt; Añadir
+                                    </p>
+                                </div>
                             </div>
-                            <div class="col s12">
-                                <div class="row">
-                                    <!--Inicio Ride-->
-                                    <div class="input-field col s4 ">
-                                        <i class="material-icons prefix">location_on</i>
-                                        <input type="text" name="ComienzoRide">
-                                        <label for="ComienzoRide">Inicio del Ride</label>
-                                    </div>
-                                    <div class="input-field col s1">
-                                        <button class="btn waves-effect waves-light card-panel blue-grey">
-                                            <i class="medium material-icons">map</i>
+                        </form>
+                    </div>
+                </div>
+                <!--Datos Añadir Ride-->
+                <div>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <!--Nombre Ride-->
+                                <div class="input-field col s8 ">
+                                    <i class="material-icons prefix">directions_car</i>
+                                    <input
+                                        type="text"
+                                        name="nombreride"
+                                        id="Nombre-Ride"
+                                        class="validate "
+                                    >
+                                    <label for="nombreride">Nombre del Ride</label>
+                                </div>
+                                <div class="col s12">
+                                    <div class="row">
+                                        <!--Inicio Ride-->
+                                        <div class="input-field col s4 ">
+                                            <i class="material-icons prefix">location_on</i>
+                                            <input type="text" name="ComienzoRide" id="Comienzo-Ride">
+                                            <label for="ComienzoRide">Inicio del Ride</label>
                                         </div>
                                         <!--Fin Ride-->
                                         <div class="input-field col s4">
                                             <i class="material-icons prefix">location_on</i>
                                             <input type="text" name="FinRide">
                                             <label for="FinRide">Fin del Ride</label>
-                                        </div>
-                                        <div class="input-field col s1">
-                                            <button class="btn waves-effect waves-light card-panel blue-grey">
-                                                <i class="medium material-icons">map</i>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -125,7 +120,7 @@
                                         type="text"
                                         name="TextAre"
                                         class="materialize-textarea"
-                                        placeholder="Añade aqui la descripción de tu ride!"
+                                        placeholder="Este es mi viaje diario,desdes el barrio los Angeles hasta la oficina de mi trabajo en el segundo piso del edificio cooperservidores! "
                                     ></textarea>
                                     <label for="TextAre">Descripción</label>
                                 </div>
@@ -151,7 +146,6 @@
                                     class="timepicker"
                                     value="07:22"
                                 >
-                               
                             </div>
                             <div>
                                 <label for="llegada">Llegada</label>
@@ -161,7 +155,6 @@
                                     class="timepicker"
                                     value="08:30"
                                 >
-                              
                             </div>
                         </div>
                         <!-- Seleccion de los dias-->
@@ -234,5 +227,13 @@
             </div>
             <br>
             <br>
-</body>
-</html>
+            <script src="js/login.js"></script>
+            <script>
+                 document.addEventListener('DOMContentLoaded', function() {
+                // var elems = document.querySelectorAll('.sidenav');
+                // var instances = M.Sidenav.init(elems);
+                M.AutoInit();
+              });
+            </script>
+        </body>
+    </html>

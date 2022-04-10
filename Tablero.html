@@ -13,138 +13,152 @@
         <!-- logos -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
-    <body>
-        <form>
-            <!-- Menu-->
-            <nav>
-                <div class="nav-wrapper  blue-grey">
-                    <ul id="nav-mobile" class="left hide-on-med-and-down">
+    <body onload="Nameloger()">
+        <div class="navbar-fixed">
+            <nav class="blue-grey">
+                <div class="nav-wrapper container">
+                    <a href="#" class="brand-logo right">TicoRides</a>
+                    <ul class="left">
                         <li>
                             <a href="Tablero.html">Tablero</a>
-                            <!-- Referencia a Tablero -->
                         </li>
                         <li>
-                            <a href="Ride.html">Ride</a>
-                            <!-- Referencia a Ride -->
+                            <a href="Ride.html">Rides</a>
                         </li>
                         <li>
                             <a href="Configuraciones.html">Configuraciones</a>
-                            <!-- Referencia a Configuraciones -->
                         </li>
                     </ul>
                 </div>
             </nav>
-            <!-- Imagen-->
-            <div>
-                <img class="responsive-img " src="Ima/imagenRide.jpg">
-                <br></br>
-            </div>
-            <!-- Seccion de Informacion-->
-            <section>
-                <div class="row">
-                    <!-- Txt Tablero-->
-                    <div class="col s12 m6 l3">
-                        <p class="FuenteGrande text-aling left"> Tablero</p>
-                    </div>
-                    <!-- Sin informacion-->
-                    <div class="col s12 m6 l3">
-                        <p></p>
-                    </div>
-                    <div class="col s12 m6 l3">
-                        <p></p>
-                    </div>
-                    <!-- Seccion Bienvenida al Usuario-->
-                    <div class="col s12 m6 l3">
-                        <p class="text-aling left"> Bienvenido Usuario</p>
-                        <p class="text-aling left">
-                            <img class="circle imgUsu float right" src="Ima/ImaUsu.png">
-                        </p>
-                    </div>
+        </div>
+        <!-- Imagen-->
+        <div>
+            <img class="responsive-img " src="Ima/imagenRide.jpg">
+            <br></br>
+        </div>
+        <!-- Seccion de Informacion-->
+        <section>
+            <div class="row">
+                <!-- Txt Tablero-->
+                <div class="col s12 m6 l3">
+                    <p class="FuenteGrande text-aling left"> Tablero</p>
                 </div>
-            </section>
-            <!--Menu de seguimiento de ingreso-->
-            <div>
-                <p class=" divRuta ">
-                    <a class="FuenteGrande" href="Tablero.html">Tablero</a>
-                    &gt;
-                </p>
+                <!-- Sin informacion-->
+                <div class="col s12 m6 l3">
+                    <p></p>
+                </div>
+                <div class="col s12 m6 l3">
+                    <p></p>
+                </div>
+                <!-- Seccion Bienvenida al Usuario-->
+                <div class="col s12 m6 l3">
+                    <p class="text-aling left">
+                        Bienvenido
+                        <a id="user_name" class="user_name"> Usuario</a>
+                    </p>
+                    <p class="text-aling left">
+                        <img class="circle imgUsu float right" src="Ima/ImaUsu.png">
+                    </p>
+                </div>
             </div>
-            <!--Informacion-->
-            <div class="float left">
-                <h4 class="FuentePeque"> MIS RIDES</h4>
-            </div>
-            <br>
-            <br>
-            <br>
-            <div>
-                <fieldset class="responsive-field Tamaño">
-                    <h4 class="FuentePeque">Tu lista actual de viajes</h4>
-                    <p align="right">
-                        <a class="btn-floating btn-large waves-effect waves-light light-green lighten-2" href="AñadirRide.html">
-                            <i class="material-icons">add</i>
-                        </a>
+        </section>
+        <!--Menu de seguimiento de ingreso-->
+        <div>
+            <p class=" divRuta ">
+                <a class="FuenteGrande" href="Tablero.html">Tablero</a>
+                &gt;
+            </p>
+        </div>
+        <!--Informacion-->
+        <div class="float left">
+            <h4 class="FuentePeque"> MIS RIDES</h4>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div>
+            <fieldset class="responsive-field Tamaño">
+                <h4 class="FuentePeque">Tu lista actual de viajes</h4>
+                <p align="right">
+                    <a class="btn-floating btn-large waves-effect waves-light light-green lighten-2" href="AñadirRide.html">
+                        <i class="material-icons">add</i>
+                    </a>
                     <div class="row">
                         <div class=" input-field col s8">
-                           
-                            </p>
-                            <table class="striped responsive-table">
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Punto de Partida</th>
-                                    <th>Destino</th>
-                                    <th>Accion</th>
-                                </tr>
-                                <tr>
-                                    <td>Brete</td>
-                                    <td>San Isidro</td>
-                                    <td>Ciudad Quesada</td>
-                                    <td>
-                                        <a class="waves-effect waves-light light-blue darken-3 btn" href="EditarRide.html">
-                                            <i class="material-icons right">edit</i>Editar
-                                        </a>
-                                        <a class="waves-effect waves-light  red darken-4 btn">
-                                            <i class="material-icons right">delete</i>Eliminar
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Casa</td>
-                                    <td>La Cruz</td>
-                                    <td>Florencia</td>
-                                    <td>
-                                        <a class="waves-effect waves-light light-blue darken-3 btn" href="EditarRide.html">
-                                            <i class="material-icons right">edit</i>Editar
-                                        </a>
-                                        <a class="waves-effect waves-light  red darken-4 btn">
-                                            <i class="material-icons right">delete</i>Eliminar
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Oficina Chepe</td>
-                                    <td>Sucre</td>
-                                    <td>Ciudad Quesada</td>
-                                    <td>
-                                        <a class="waves-effect waves-light light-blue darken-3 btn" href="EditarRide.html">
-                                            <i class="material-icons right">edit</i>Editar
-                                        </a>
-                                        <a class="waves-effect waves-light  red darken-4 btn">
-                                            <i class="material-icons right">delete</i>Eliminar
-                                        </a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
+                        </p>
+                        <table class="striped responsive-table">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Punto de Partida</th>
+                                <th>Destino</th>
+                                <th>Accion</th>
+                            </tr>
+                            <tr>
+                                <td>Brete</td>
+                                <td>San Isidro</td>
+                                <td>Ciudad Quesada</td>
+                                <td>
+                                    <a class="waves-effect waves-light light-blue darken-3 btn" href="EditarRide.html">
+                                        <i class="material-icons right">edit</i>
+                                        Editar
+                                    </a>
+                                    <a class="waves-effect waves-light  red darken-4 btn">
+                                        <i class="material-icons right">delete</i>
+                                        Eliminar
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Casa</td>
+                                <td>La Cruz</td>
+                                <td>Florencia</td>
+                                <td>
+                                    <a class="waves-effect waves-light light-blue darken-3 btn" href="EditarRide.html">
+                                        <i class="material-icons right">edit</i>
+                                        Editar
+                                    </a>
+                                    <a class="waves-effect waves-light  red darken-4 btn">
+                                        <i class="material-icons right">delete</i>
+                                        Eliminar
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Oficina Chepe</td>
+                                <td>Sucre</td>
+                                <td>Ciudad Quesada</td>
+                                <td>
+                                    <a class="waves-effect waves-light light-blue darken-3 btn" href="EditarRide.html">
+                                        <i class="material-icons right">edit</i>
+                                        Editar
+                                    </a>
+                                    <a class="waves-effect waves-light  red darken-4 btn">
+                                        <i class="material-icons right">delete</i>
+                                        Eliminar
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
-                    <p align="right">
-                        <a class="btn-floating btn-large waves-effect waves-light light-green lighten-2" href="AñadirRide.html">
-                            <i class="material-icons">add</i>
-                        </a>
-                    </p>
-                </fieldset>
-            </div>
-        </form>
-        <br>
-        <br>
-    </body>
+                </div>
+                <p align="right">
+                    <a class="btn-floating btn-large waves-effect waves-light light-green lighten-2" href="AñadirRide.html">
+                        <i class="material-icons">add</i>
+                    </a>
+                </p>
+            </fieldset>
+        </div>
+    </form>
+    <br>
+    <br>
+    <script src="js/login.js"></script>
+    <script>
+         document.addEventListener('DOMContentLoaded', function() {
+        // var elems = document.querySelectorAll('.sidenav');
+        // var instances = M.Sidenav.init(elems);
+        M.AutoInit();
+      });
+    </script>
+</body>
 </html>

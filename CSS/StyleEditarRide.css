@@ -1,4 +1,4 @@
-body {
+/*body {
   font-family: arial;
   float: left;
 }
@@ -120,4 +120,36 @@ button {
   border-radius: 35px;
   float: right;
 
+}*/
+
+.divRuta{
+  text-align: left;
 }
+
+.imgUsu {
+	width: 30px;
+	height: 20px;
+
+}
+
+
+.FuenteGrande{
+	font-size: x-large;
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+  
+  }
+  
+  .FuentePeque{
+	font-size: large;
+	color: black;
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: left;
+  }
+
+  .Tamaño {
+    width: 1550px;
+    height: 550px;
+  }

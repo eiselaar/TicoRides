@@ -13,24 +13,22 @@
         <!-- logos -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
-    <body>
+    <body onload="Nameloger()">
         <form>
             <!-- Menu-->
             <div class="navbar-fixed">
-                <nav>
-                    <div class="nav-wrapper  blue-grey">
-                        <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <nav class="blue-grey">
+                    <div class="nav-wrapper container">
+                        <a href="#" class="brand-logo right">TicoRides</a>
+                        <ul class="left">
                             <li>
                                 <a href="Tablero.html">Tablero</a>
-                                <!-- Referencia a Tablero -->
                             </li>
                             <li>
-                                <a href="Ride.html">Ride</a>
-                                <!-- Referencia a Ride -->
+                                <a href="Ride.html">Rides</a>
                             </li>
                             <li>
                                 <a href="Configuraciones.html">Configuraciones</a>
-                                <!-- Referencia a Configuraciones -->
                             </li>
                         </ul>
                     </div>
@@ -57,7 +55,10 @@
                     </div>
                     <!-- Seccion Bienvenida al Usuario-->
                     <div class="col s12 m6 l3">
-                        <p class="text-aling left"> Bienvenido Usuario</p>
+                        <p class="text-aling left">
+                            Bienvenido
+                            <a id="user_name" class="user_name"> Usuario</a>
+                        </p>
                         <p class="text-aling left">
                             <img class="circle imgUsu float right" src="Ima/ImaUsu.png">
                         </p>
@@ -89,7 +90,7 @@
                             <!--Nombre Ride-->
                             <div class="input-field col s8 ">
                                 <i class="material-icons prefix">directions_car</i>
-                                <input type="text" name="nombreride" class="validate ">
+                                <input disabled  type="text" name="nombreride" class="validate ">
                                 <label for="nombreride">Nombre del Ride</label>
                             </div>
                             <div class="col s12">
@@ -97,7 +98,7 @@
                                     <!--Inicio Ride-->
                                     <div class="input-field col s4 ">
                                         <i class="material-icons prefix">location_on</i>
-                                        <input type="text" name="ComienzoRide">
+                                        <input disabled type="text" name="ComienzoRide">
                                         <label for="ComienzoRide">Inicio del Ride</label>
                                     </div>
                                     <div class="input-field col s1">
@@ -107,7 +108,7 @@
                                         <!--Fin Ride-->
                                         <div class="input-field col s4">
                                             <i class="material-icons prefix">location_on</i>
-                                            <input type="text" name="FinRide">
+                                            <input disabled  type="text" name="FinRide">
                                             <label for="FinRide">Fin del Ride</label>
                                         </div>
                                         <div class="input-field col s1">
@@ -121,6 +122,7 @@
                                 <div class="input-field col s8">
                                     <i class="material-icons prefix">insert_comment</i>
                                     <textarea
+                                        disabled 
                                         type="text"
                                         name="TextAre"
                                         class="materialize-textarea"
@@ -145,6 +147,7 @@
                             <div>
                                 <label for="salida">Salida</label>
                                 <input
+                                    disabled 
                                     type="time"
                                     name="salida"
                                     class="timepicker"
@@ -154,6 +157,7 @@
                             <div>
                                 <label for="llegada">Llegada</label>
                                 <input
+                                    disabled 
                                     type="time"
                                     name="llegada"
                                     class="timepicker"
@@ -169,49 +173,49 @@
                                     <p>
                                         <!--Lunes-->
                                         <label>
-                                            <input type="checkbox">
+                                            <input disabled  type="checkbox">
                                             <span>Lunes</span>
                                         </label>
                                     </p>
                                     <p>
                                         <!--Martes-->
                                         <label>
-                                            <input type="checkbox">
+                                            <input disabled  type="checkbox">
                                             <span>Martes</span>
                                         </label>
                                     </p>
                                     <p>
                                         <!--Miercoles-->
                                         <label>
-                                            <input type="checkbox">
+                                            <input disabled  type="checkbox">
                                             <span>Miércoles</span>
                                         </label>
                                     </p>
                                     <p>
                                         <!--Jueves-->
                                         <label>
-                                            <input type="checkbox">
+                                            <input disabled  type="checkbox">
                                             <span>Jueves</span>
                                         </label>
                                     </p>
                                     <p>
                                         <!--Viernes-->
                                         <label>
-                                            <input type="checkbox">
+                                            <input disabled  type="checkbox">
                                             <span>Viernes</span>
                                         </label>
                                     </p>
                                     <p>
                                         <!--Sabado-->
                                         <label>
-                                            <input type="checkbox">
+                                            <input disabled  type="checkbox">
                                             <span>Sábado</span>
                                         </label>
                                     </p>
                                     <p>
                                         <!--Domingo-->
                                         <label>
-                                            <input type="checkbox">
+                                            <input disabled  type="checkbox">
                                             <span>Domingo</span>
                                         </label>
                                     </p>
@@ -232,5 +236,14 @@
             <br>
             <br>
         </form>
+         <!-- Referencia JS -->
+         <script src="js/login.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+           // var elems = document.querySelectorAll('.sidenav');
+           // var instances = M.Sidenav.init(elems);
+           M.AutoInit();
+         });
+       </script>
     </body>
 </html>
