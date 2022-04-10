@@ -1,14 +1,11 @@
 //validar campos --- VALIRDAR CHECKCHBOX
-function validarcampos(name, startride, endride,descrip, existtime,arrivaltime ) {
-    if (name.length == 0 ||startride.length == 0 ||endride.length == 0 || descrip.length == 0 || existtime.length == 0 || arrivaltime.length == 0) {
-        return false;
-    } else {
-        return true;
-    }
-}
 
-function goEdit() {
-    window.location = "EditarRide.html";
+function validarcampos(name, startride, endride, descrip, existtime, arrivaltime) {
+    if (name.length == 0 || startride.length == 0 || endride.length == 0 || descrip.length == 0 || existtime.length == 0 || arrivaltime.length == 0) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function addRide() {
@@ -20,55 +17,57 @@ function addRide() {
     const existtime = document.getElementById('salirride').value;
     const arrivaltime = document.getElementById('llegarride').value;
     // agregar los checkbox
+    let Lunes = document.getElementById('chbLunes').checked;
+    let Martes = document.getElementById('chbMartes').checked;
+    let Miercoles = document.getElementById('chbMiercoles').checked;
+    let Jueves = document.getElementById('chbJueves').checked;
+    let Viernes = document.getElementById('chbViernes').checked;
+    let Sabado = document.getElementById('chbSabado').checked;
+    let Domingo = document.getElementById('chbDomingo').checked;
+
 
     //create an object
+
+    let userlog = localStorage.getItem('userlog');
     let ridesDB = JSON.parse(localStorage.getItem('rides'));
-
-    //read articles log.
-
-    let userlog = JSON.parse(localStorage.getItem('userlog'));
-
     if (!ridesDB) {
         ridesDB = [];
     }
 
-    if (validarcampos(name_ride, startride, endride,descrip, existtime,arrivaltime)) {
-        const rides = {
-            id_ride: autoincremental(),
-            name: name_ride,
-            startride:startride,
-            endride:endride,
-            descrip: descrip,
-            existtime:existtime,
-            arrivaltime:arrivaltime, 
-            id_user: userlog[0],
-            
+    if (!validarcampos(name_ride, startride, endride, descrip, existtime, arrivaltime)) {
+
+        if (Lunes || Martes || Miercoles || Jueves || Viernes || Sabado || Domingo) {
+            const rides = {
+                name: name_ride,
+                startride: startride,
+                endride: endride,
+                descrip: descrip,
+                existtime: existtime,
+                arrivaltime: arrivaltime,
+                Lunes: Lunes,
+                Martes: Martes,
+                Miercoles: Miercoles,
+                Jueves: Jueves,
+                Viernes: Viernes,
+                Sabado: Sabado,
+                Domingo: Domingo,
+                usernameride: userlog
+
+            }
+            ridesDB.push(rides);
+            localStorage.setItem('rides', JSON.stringify(ridesDB));
+            window.alert('Ride creado con exito!');
+            window.location = 'Tablero.html';
+        } else {
+            window.alert('Debe seleccionar al menos un dia!');
         }
-        ridesDB.push(rides);
-        localStorage.setItem('products', JSON.stringify(ridesDB));
-        window.alert('Ride creado con exito!');
-        window.location = 'Tablero.html';
+
     } else {
         window.alert('Algunos campos requeridos se encuentran vacíos');
     }
 
+
 }
 
-//create an autoincremental ID
-function autoincremental() {
-    //leer los datos de los usuarios del local storage
-    const viajesDB = localStorage.getItem('rides');
-    //compobar que haya datos existentes
-    let id = 0;
-    // id = 1, id = 2, id = 3
-    let viajes = JSON.parse(viajesDB);
-    //recorrer el arreglo para saber por cual id vamos
-    if (articles) {
-        for (let i = 0; i < articles.length; i++) {
-            if (id < viajes[i].id_ride) {
-                id = viajes[i].id_ride;
-            }
-        }
-    }
-    return id + 1;
-}
+
+

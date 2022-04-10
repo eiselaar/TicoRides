@@ -38,7 +38,7 @@
                 </div>
                 <!-- Imagen-->
                 <div>
-                    <img class="responsive-img " src="Ima/imagenRide.jpg">
+                    <img class="responsive-img " src="Ima/imagenRide.png">
                     <br></br>
                 </div>
                 <!-- Seccion de Informacion-->
@@ -108,21 +108,13 @@
                                             <input id="ComienzoRide" type="text" name="ComienzoRide">
                                             <label for="ComienzoRide">Inicio del Ride</label>
                                         </div>
-                                        <div class="input-field col s1">
-                                            <button class="btn waves-effect waves-light card-panel blue-grey">
-                                                <i class="medium material-icons">map</i>
-                                            </div>
                                             <!--Fin Ride-->
                                             <div class="input-field col s4">
                                                 <i class="material-icons prefix">location_on</i>
                                                 <input id="FinRide" type="text" name="FinRide">
                                                 <label for="FinRide">Fin del Ride</label>
                                             </div>
-                                            <div class="input-field col s1">
-                                                <button class="btn waves-effect waves-light card-panel blue-grey">
-                                                    <i class="medium material-icons">map</i>
-                                                </div>
-                                            </div>
+                
                                         </div>
                                     </div>
                                     <!--Descripsion Ride-->
@@ -157,7 +149,7 @@
                                 </div>
                                 <div>
                                     <label for="llegada">Llegada</label>
-                                    <input  id="llegarride"  type=" datetime"   name="llegada" class="timepicke"  value="08:30 AM"  >
+                                    <input  id="llegarride"  type="datetime"   name="llegada" class="timepicker"  value="08:30 AM"  >
                                 </div>
                             </div>
                             <!-- Seleccion de los dias-->
@@ -189,14 +181,14 @@
                                         <p>
                                             <!--Jueves-->
                                             <label>
-                                                <input id="chJueves" type="checkbox">
+                                                <input id="chbJueves" type="checkbox">
                                                 <span>Jueves</span>
                                             </label>
                                         </p>
                                         <p>
                                             <!--Viernes-->
                                             <label>
-                                                <input id="chViernes" type="checkbox">
+                                                <input id="chbViernes" type="checkbox">
                                                 <span>Viernes</span>
                                             </label>
                                         </p>
@@ -226,12 +218,13 @@
                 </div>
                 <!-- Boton Guardar -->
                 <div class="float center">
-                    <button class=" waves-effect waves-light btn-large light-green accent-4"> Guardar</button>
+                    <button class=" waves-effect waves-light btn-large light-green accent-4" onclick="addRide()"> Guardar</button>
                 </div>
                 <br>
                 <br>
             </form>
             <script src="js/login.js"></script>
+            <script src="js/ticorides.js"></script>
             <script>
                      document.addEventListener('DOMContentLoaded', function() {
                     // var elems = document.querySelectorAll('.sidenav');

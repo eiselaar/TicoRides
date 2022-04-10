@@ -20,6 +20,8 @@ function addUser() {
     //insertar los datos en el localstorage
     if (password===newpassword)
     {
+
+        //obtener informacion de la lista
         let usersDB = JSON.parse(localStorage.getItem('users'))
         if (!usersDB) {
             usersDB = [];
@@ -42,7 +44,6 @@ function addUser() {
                 usersDB.push(user);
                 localStorage.setItem('users', JSON.stringify(usersDB));
                 document.getElementById('invalid').hidden = true;
-                saveLogUser(id);
                 window.location = "PaginadeAutenticación.html";
             } else {
                 document.getElementById('invalid').hidden = false;
@@ -112,7 +113,7 @@ function validarpass(newpassword){
 }
 
 
-//funcion para validar que el usuario se encuentra registrado
+//funcion para validar que el usuario se encuentra registrado en la localstore
 function validarusuario() {
     //obtner los datos ingresados por el usuario
     const username = document.getElementById('user').value;
@@ -123,8 +124,7 @@ function validarusuario() {
     if (usersDB) {
         let finduser = usersDB.find(user => user.username === username && user.password === password);
         if (finduser) {
-            saveLogUser(finduser.id);
-            sessionStorage.setItem('logerUser',username);
+            saveLogUser(username);
             window.location = "Tablero.html";
         } else {
             window.alert('Datos Incorrectos, vuelva a Intentarlo');
@@ -137,20 +137,23 @@ function validarusuario() {
 
 
 
-//funcion para saber que usario esta loggeado.
-function saveLogUser(id_user) {
-    //leer los usuarios loggeados
-    let logs = JSON.parse(localStorage.getItem('userlog'))
-    if (!logs) {
-        logs = [];
-    }
-    logs.push(id_user);
-    localStorage.setItem('userlog', JSON.stringify(logs));
+//funcion para saber que usario esta loggeado localstore
+function saveLogUser(user_name) {
+    localStorage.setItem('userlog', user_name);
 }
 
-// Presentar el nombre del usuario en en la bienvenida
+// Presentar el nombre del usuario en en la bienvenida de tablero, ride y config
 function Nameloger() {
-    document.getElementById('user_name').innerHTML=sessionStorage.getItem('logerUser');
+    document.getElementById('user_name').innerHTML=localStorage.getItem('userlog');
 }
 
+//cerrar sesion del usuario
+function singout(){
+    response = window.confirm('¿Está seguro que desea cerrar la sesión?');
+    if(response){
+        localStorage.removeItem("userlog");
+        window.location = "index.html";
+    }
+  
+};
 
