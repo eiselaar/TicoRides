@@ -29,6 +29,9 @@
                                 <li>
                                     <a href="Configuraciones.html">Configuraciones</a>
                                 </li>
+                                <li>
+                                    <a><i class="material-icons">exit_to_app</i></a>  
+                                </li>
                             </ul>
                         </div>
                     </nav>
@@ -89,7 +92,12 @@
                                 <!--Nombre Ride-->
                                 <div class="input-field col s8 ">
                                     <i class="material-icons prefix">directions_car</i>
-                                    <input  id= "nombreride" type="text" name="nombreride" class="validate ">
+                                    <input
+                                        id="nombreride"
+                                        type="text"
+                                        name="nombreride"
+                                        class="validate "
+                                    >
                                     <label for="nombreride">Nombre del Ride</label>
                                 </div>
                                 <div class="col s12">
@@ -145,25 +153,11 @@
                             <div class="input-field col s5">
                                 <div>
                                     <label for="salida">Salida</label>
-                                    <input
-                                       id="salirride"
-                                        type="time"
-                                        name="salida"
-                                        class="timepicker"
-                                        value="07:22"
-                                    >
-                                   
+                                    <input id="salirride" type="datetime"  name="salida" class="timepicker"     value="07:22 AM" >
                                 </div>
                                 <div>
                                     <label for="llegada">Llegada</label>
-                                    <input
-                                        id="llegarride"
-                                        type="time"
-                                        name="llegada"
-                                        class="timepicker"
-                                        value="08:30"
-                                    >
-                                  
+                                    <input  id="llegarride"  type=" datetime"   name="llegada" class="timepicke"  value="08:30 AM"  >
                                 </div>
                             </div>
                             <!-- Seleccion de los dias-->
@@ -236,13 +230,14 @@
                 </div>
                 <br>
                 <br>
-                <script src="js/login.js"></script>
-                <script>
+            </form>
+            <script src="js/login.js"></script>
+            <script>
                      document.addEventListener('DOMContentLoaded', function() {
                     // var elems = document.querySelectorAll('.sidenav');
                     // var instances = M.Sidenav.init(elems);
                     M.AutoInit();
                   });
-                </script>
-            </body>
-        </html>
+            </script>
+        </body>
+    </html>

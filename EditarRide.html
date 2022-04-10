@@ -15,52 +15,56 @@
     </head>
     <body onload="Nameloger()">
         <form>
-                <!-- Menu-->
-                <div class="navbar-fixed">
-                    <nav class="blue-grey">
-                        <div class="nav-wrapper container">
-                            <a href="#" class="brand-logo right">TicoRides</a>
-                            <ul class="left">
-                                <li>
-                                    <a href="Tablero.html">Tablero</a>
-                                </li>
-                                <li>
-                                    <a href="Ride.html">Rides</a>
-                                </li>
-                                <li>
-                                    <a href="Configuraciones.html">Configuraciones</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-                <!-- Imagen-->
-                <div>
-                    <img class="responsive-img " src="Ima/imagenRide.jpg">
-                    <br></br>
-                </div>
-                <!-- Seccion de Informacion-->
-                <section>
-                    <div class="row">
-                        <!-- Txt Tablero-->
-                        <div class="col s12 m6 l3">
-                            <p class="FuenteGrande text-aling left"> Rides</p>
-                        </div>
-                        <!-- Sin informacion-->
-                        <div class="col s12 m6 l3">
-                            <p></p>
-                        </div>
-                        <div class="col s12 m6 l3">
-                            <p></p>
-                        </div>
-                        <!-- Seccion Bienvenida al Usuario-->
-                        <div class="col s12 m6 l3">
-                            <p class="text-aling left">
-                                Bienvenido
-                                <a id="user_name" class="user_name"> Usuario</a>
-                            </p>
-                            <p class="text-aling left">
-                                <img class="circle imgUsu float right" src="Ima/ImaUsu.png">
+            <!-- Menu-->
+            <div class="navbar-fixed">
+                <nav class="blue-grey">
+                    <div class="nav-wrapper container">
+                        <a href="#" class="brand-logo right">TicoRides</a>
+                        <ul class="left">
+                            <li>
+                                <a href="Tablero.html">Tablero</a>
+                            </li>
+                            <li>
+                                <a href="Ride.html">Rides</a>
+                            </li>
+                            <li>
+                                <a href="Configuraciones.html">Configuraciones</a>
+                            </li>
+                            <li>
+                                <a><i class="material-icons">exit_to_app</i></a>
+                                
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <!-- Imagen-->
+            <div>
+                <img class="responsive-img " src="Ima/imagenRide.jpg">
+                <br></br>
+            </div>
+            <!-- Seccion de Informacion-->
+            <section>
+                <div class="row">
+                    <!-- Txt Tablero-->
+                    <div class="col s12 m6 l3">
+                        <p class="FuenteGrande text-aling left"> Rides</p>
+                    </div>
+                    <!-- Sin informacion-->
+                    <div class="col s12 m6 l3">
+                        <p></p>
+                    </div>
+                    <div class="col s12 m6 l3">
+                        <p></p>
+                    </div>
+                    <!-- Seccion Bienvenida al Usuario-->
+                    <div class="col s12 m6 l3">
+                        <p class="text-aling left">
+                            Bienvenido
+                            <a id="user_name" class="user_name"> Usuario</a>
+                        </p>
+                        <p class="text-aling left">
+                            <img class="circle imgUsu float right" src="Ima/ImaUsu.png">
                         </div>
                     </div>
                 </section>
@@ -141,19 +145,20 @@
                             <div>
                                 <label for="salida">Salida</label>
                                 <input
-                                    type="time"
+                                    type="datetime"
                                     name="salida"
                                     class="timepicker"
-                                    value="07:22"
+                                    value="07:20 AM"
+                                    
                                 >
                             </div>
                             <div>
                                 <label for="llegada">Llegada</label>
                                 <input
-                                    type="time"
+                                    type="datetime"
                                     name="llegada"
                                     class="timepicker"
-                                    value="08:30"
+                                    value="08:30 AM"
                                 >
                             </div>
                         </div>
@@ -227,13 +232,14 @@
             </div>
             <br>
             <br>
-            <script src="js/login.js"></script>
-            <script>
+        </form>
+        <script src="js/login.js"></script>
+        <script>
                  document.addEventListener('DOMContentLoaded', function() {
                 // var elems = document.querySelectorAll('.sidenav');
                 // var instances = M.Sidenav.init(elems);
                 M.AutoInit();
               });
-            </script>
-        </body>
-    </html>
+        </script>
+    </body>
+</html>
