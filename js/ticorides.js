@@ -35,7 +35,9 @@ function addRide() {
     }
 
     if (!validarcampos(name_ride, startride, endride, descrip, existtime, arrivaltime)) {
+
         if (!validarnombreride (name_ride)){
+
             if (Lunes || Martes || Miercoles || Jueves || Viernes || Sabado || Domingo) {
                 const rides = {
                     name: name_ride,
@@ -61,7 +63,7 @@ function addRide() {
             } else {
                 window.alert('Debe seleccionar al menos un dia!');
             }
-        } else{
+        } else {
             window.alert('Este Nombre del Ride ya existe!, por favor ingresa uno diferente.');
         }
         
@@ -78,7 +80,7 @@ function validarnombreride(name_ride) {
 
     const ridesDB = JSON.parse(localStorage.getItem('rides'));
     if (ridesDB) {
-        let ride_name = usersDB.find(rides => rides.name === name_ride);
+        let ride_name = ridesDB.find(rides => rides.name === name_ride);
 
         if (ride_name) {
             return true;
@@ -90,8 +92,9 @@ function validarnombreride(name_ride) {
     }
 
 }
+//funcion modificar
 function modify(){
-    
+
 }
 
 
