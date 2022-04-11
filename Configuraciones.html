@@ -15,22 +15,23 @@
     </head>
     <body onload="Nameloger()">
         <form class="responsive-form">
+               <!-- Menu-->
             <div class="navbar-fixed">
                 <nav class="blue-grey">
                     <div class="nav-wrapper container">
-                        <a href="#" class="brand-logo right">TicoRides</a>
+                        <a href="#" class="brand-logo right">TicoRides</a>    <!--Logo -->
                         <ul class="left">
                             <li>
-                                <a href="Tablero.html">Tablero</a>
+                                <a href="Tablero.html">Tablero</a> <!--Tablero-->
                             </li>
                             <li>
-                                <a href="Ride.html">Rides</a>
+                                <a href="Ride.html">Rides</a><!--Ride -->
                             </li>
                             <li>
-                                <a href="Configuraciones.html">Configuraciones</a>
+                                <a href="Configuraciones.html">Configuraciones</a> <!--Configuraciones--> 
                             </li>
                             <li>
-                                <a><i class="material-icons">exit_to_app</i></a>
+                                <a onclick="singout()"><i class="material-icons">exit_to_app</i></a>     <!--Cerrar Secion-->
                                 
                             </li>
                         </ul>
@@ -38,7 +39,7 @@
                 </nav>
             </div>
 
-              <!-- Imagen-->
+              <!-- Imagen Logo-->
             <div>
                 <img class="responsive-img " src="Ima/imagenRide.png">
                 <br></br>
@@ -84,24 +85,24 @@
                             <div class="row">
                                 <div class="input-field col s8" >
                                        <i class="material-icons prefix">account_circle</i>
-                                        <input type="text" name="nombreComp" class="validate ">
-                                        <label for="nombreComp">Nombre Completo</label>
+                                        <input type="text" id="nombrecomp_car" name="nombrecomp_car" class="validate ">
+                                        <label for="nombrecomp_car">Nombre Completo</label>
                                 </div>
                             </div>
                              <!-- Velocidad -->
                             <div class="row">
                                 <div class="input-field col s8">
                                     <i class="material-icons prefix">time_to_leave</i>
-                                    <input type="text" name="VelocidadMed" placeholder="60km/h" class="validate">
-                                    <label for="VelocidadMed">Velocidad Media</label>
+                                    <input type="text" id="VelocidadMed_car" name="VelocidadMed_car", placeholder="60km/h" class="validate">
+                                    <label for="VelocidadMed_car">Velocidad Media</label>
                                 </div>
                             </div>
                              <!-- Descripsion -->
                              <div class="row">
                                 <div class="input-field col s8">
                                     <i class="material-icons prefix">short_text</i>
-                                    <textarea type="text" name="TextAre" class="materialize-textarea"></textarea>
-                                    <label for="TextAre">Descripción</label>
+                                    <textarea type="text"  id="descip_car" name="descip_car" class="materialize-textarea"></textarea>
+                                    <label for="descip_car">Descripción</label>
                                 </div>
                             </div>
                         </form>
@@ -115,14 +116,17 @@
 
              <!-- Boton Guardar -->
             <div class="float center">
-                <button class=" waves-effect waves-light btn-large light-green accent-4"> Guardar</button>
+                <button class=" waves-effect waves-light btn-large light-green accent-4" onclick="addConfig()" > Guardar</button>
             </div>
             <br>
             <br>
         </form>
-        <script src="js/login.js"></script>
+       
          <!-- Referencia al JS -->
-         <script>
+         <script src="js/login.js"></script>
+         <script src="js/ticorides.js"></script>
+         <!-- Referencia a Materialize para menu-->
+         <script> 
             document.addEventListener('DOMContentLoaded', function() {
            // var elems = document.querySelectorAll('.sidenav');
            // var instances = M.Sidenav.init(elems);
