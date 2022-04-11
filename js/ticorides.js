@@ -1,4 +1,6 @@
-//validar campos --- VALIRDAR CHECKCHBOX
+//********* * JS DE AÑADIR RIDE´ ***************
+
+//validar campos de html añadir.
 
 function validarcampos(name, startride, endride, descrip, existtime, arrivaltime) {
     if (name.length == 0 || startride.length == 0 || endride.length == 0 || descrip.length == 0 || existtime.length == 0 || arrivaltime.length == 0) {
@@ -8,6 +10,7 @@ function validarcampos(name, startride, endride, descrip, existtime, arrivaltime
     }
 }
 
+//Añadir rides
 function addRide() {
     //obtener rides
     const name_ride = document.getElementById('nombreride').value;
@@ -26,7 +29,7 @@ function addRide() {
     let Domingo = document.getElementById('chbDomingo').checked;
 
 
-    //create an object
+    //crear un objeto
 
     let userlog = localStorage.getItem('userlog');
     let ridesDB = JSON.parse(localStorage.getItem('rides'));
@@ -37,7 +40,7 @@ function addRide() {
     if (!validarcampos(name_ride, startride, endride, descrip, existtime, arrivaltime)) {
 
         if (!validarnombreride (name_ride)){
-
+              //validar los checkbox
             if (Lunes || Martes || Miercoles || Jueves || Viernes || Sabado || Domingo) {
                 const rides = {
                     name: name_ride,
@@ -92,9 +95,60 @@ function validarnombreride(name_ride) {
     }
 
 }
-//funcion modificar
+//funcion modificar ride
 function modify(){
 
 }
+
+//////////////////////////////////////////////////////////////////////
+
+// ********************* JS DE CONFIGURACIONES   *********
+
+//validar campos de html CONFIGURACIONES.
+
+function VCC(namecomplet, speed, descrip,) {
+    if (namecomplet.length == 0 || speed.length ==0 ||  descrip.length == 0 ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//Añadir configuraciones
+function addConfig(){
+
+      //obtener rides
+      const name_complet = document.getElementById('nombrecomp_car').value;
+      const speed_car = document.getElementById('VelocidadMed_car').value;
+      const descrip_car = document.getElementById('descip_car').value;
+    
+  
+  
+      //crear un objeto
+  
+      let ridesreg = localStorage.getItem('rides');
+      let configrideDB = JSON.parse(localStorage.getItem('configride'));
+      if (!configrideDB) {
+        configrideDB = [];
+      }
+      if (!VCC(name_complet,speed_car,descrip_car)) {
+        const config = {
+            name_complet: name_complet,
+            speed_car: speed_car,
+            descrip_car: descrip_car,
+            nameride:ridesreg
+
+        }
+        configrideDB.push(config);
+        localStorage.setItem('configride', JSON.stringify(configrideDB));
+        window.alert('Configuraciones agregadas con exito al ride!');
+        window.location = 'Tablero.html';
+    } else {
+        window.alert('Algunos espacios quedaron en blanco, por favor verificar!');
+    }
+    
+
+}
+
 
 
