@@ -123,31 +123,68 @@ function addConfig(){
       const descrip_car = document.getElementById('descip_car').value;
     
   
-  
       //crear un objeto
   
-      let ridesreg = localStorage.getItem('rides');
+      let userlog = localStorage.getItem('userlog');
       let configrideDB = JSON.parse(localStorage.getItem('configride'));
       if (!configrideDB) {
         configrideDB = [];
       }
-      if (!VCC(name_complet,speed_car,descrip_car)) {
-        const config = {
-            name_complet: name_complet,
-            speed_car: speed_car,
-            descrip_car: descrip_car,
-            nameride:ridesreg
+      ///Apara buscar si este usario ya tiene datos guardados
+      let Confiuser= configrideDB.find(user => user.username === userlog);
 
-        }
-        configrideDB.push(config);
-        localStorage.setItem('configride', JSON.stringify(configrideDB));
-        window.alert('Configuraciones agregadas con exito al ride!');
-        window.location = 'Tablero.html';
-    } else {
-        window.alert('Algunos espacios quedaron en blanco, por favor verificar!');
-    }
+    // este if Actualiza sus datos ya tiene registrado datos y si no tiene los crea nuevos
+      if(Confiuser){
+         Confiuser.name_complet=name_complet;
+         Confiuser.speed_car=speed_car;
+         Confiuser.descrip_car=descrip_car;
+        // el nombre usario no se actualiza
+         localStorage.setItem('configride', JSON.stringify(configrideDB));
+         window.alert('Datos de configuracion actualizados exitosamente!!');
+         window.location = 'Tablero.html';
+        
+      } else{
+        if (!VCC(name_complet,speed_car,descrip_car)) {
+            const config = {
+                name_complet: name_complet,
+                speed_car: speed_car,
+                descrip_car: descrip_car,
+                username: userlog
     
+            }
+            configrideDB.push(config);
+            localStorage.setItem('configride', JSON.stringify(configrideDB));
+            window.alert('Datos de configuraciones agregados con exito al usuario!');
+            window.location = 'Tablero.html';
+        } else {
+            window.alert('Algunos espacios quedaron en blanco, por favor verificar!');
+        }
+      }
 
+}
+
+
+
+
+//////Cargar infromacion
+function ConfigCarg() {
+    let userlog = localStorage.getItem('userlog');
+
+    let configrideDB = JSON.parse(localStorage.getItem('configride'));
+        if (!configrideDB) {
+           configrideDB = [];
+        }
+        
+        let Confiuseg = configrideDB.find(user => user.username === userlog);
+
+        if( Confiuseg){
+            document.getElementById('nombrecomp_car').value = Confiuseg.name_complet;
+            document.getElementById('VelocidadMed_car').value =Confiuseg.speed_car;
+            document.getElementById('descip_car').value = Confiuseg.descrip_car;
+
+        } else{
+            window.alert('Este usuario no tiene información guardada');
+        }
 }
 
 

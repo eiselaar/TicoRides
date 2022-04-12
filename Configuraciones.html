@@ -14,7 +14,7 @@
         <!-- logos -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
-    <body onload="Nameloger()">
+    <body onload="Nameloger() , ConfigCarg()">
         <form class="responsive-form">
                <!-- Menu-->
             <div class="navbar-fixed">
@@ -86,7 +86,7 @@
                             <div class="row">
                                 <div class="input-field col s8" >
                                        <i class="material-icons prefix">account_circle</i>
-                                        <input type="text" id="nombrecomp_car" name="nombrecomp_car" class="validate ">
+                                        <input type="text" id="nombrecomp_car" name="nombrecomp_car" placeholder="" />
                                         <label for="nombrecomp_car">Nombre Completo</label>
                                 </div>
                             </div>
@@ -94,7 +94,7 @@
                             <div class="row">
                                 <div class="input-field col s8">
                                     <i class="material-icons prefix">time_to_leave</i>
-                                    <input type="text" id="VelocidadMed_car" name="VelocidadMed_car", placeholder="60km/h" class="validate">
+                                    <input type="text" id="VelocidadMed_car" name="VelocidadMed_car" placeholder="60km/h" />
                                     <label for="VelocidadMed_car">Velocidad Media</label>
                                 </div>
                             </div>
@@ -102,8 +102,9 @@
                              <div class="row">
                                 <div class="input-field col s8">
                                     <i class="material-icons prefix">short_text</i>
-                                    <textarea type="text"  id="descip_car" name="descip_car" class="materialize-textarea"></textarea>
-                                    <label for="descip_car">Descripción</label>
+                                    <textarea type="text"  id="descip_car" name="descip_car" class="materialize-textarea" placeholder=""></textarea>
+                                    <br>
+                                    <label for="descip_car">Descripción</label> 
                                 </div>
                             </div>
                         </form>
