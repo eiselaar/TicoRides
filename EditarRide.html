@@ -14,7 +14,7 @@
         <!-- logos -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
-    <body onload="Nameloger()">
+    <body onload=" Nameloger(), CargarEditarInfo('Prueba') ">
         <form>
             <!-- Menu-->
             <div class="navbar-fixed">
@@ -79,7 +79,7 @@
                                         <a href="Tablero.html">Tablero</a>
                                         &gt;
                                         <a href="Ride.html">Ride</a>
-                                        &gt; Añadir
+                                        &gt; Editar
                                     </p>
                                 </div>
                             </div>
@@ -97,8 +97,9 @@
                                     <input
                                         type="text"
                                         name="nombreride"
-                                        id="Nombre-Ride"
+                                        id="Nombre_Ride"
                                         class="validate "
+                                        placeholder=""
                                     >
                                     <label for="nombreride">Nombre del Ride</label>
                                 </div>
@@ -107,13 +108,13 @@
                                         <!--Inicio Ride-->
                                         <div class="input-field col s4 ">
                                             <i class="material-icons prefix">location_on</i>
-                                            <input type="text" name="ComienzoRide" id="Comienzo-Ride">
+                                            <input type="text" name="ComienzoRide" id="Comienzo_Ride" placeholder="">
                                             <label for="ComienzoRide">Inicio del Ride</label>
                                         </div>
                                         <!--Fin Ride-->
                                         <div class="input-field col s4">
                                             <i class="material-icons prefix">location_on</i>
-                                            <input type="text" name="FinRide">
+                                            <input type="text" name="FinRide" id="Fin_Ride" placeholder="">
                                             <label for="FinRide">Fin del Ride</label>
                                         </div>
                                     </div>
@@ -122,6 +123,7 @@
                                 <div class="input-field col s8">
                                     <i class="material-icons prefix">insert_comment</i>
                                     <textarea
+                                        id="descip_info"
                                         type="text"
                                         name="TextAre"
                                         class="materialize-textarea"
@@ -146,6 +148,7 @@
                             <div>
                                 <label for="salida">Salida</label>
                                 <input
+                                    id="tiemsali"
                                     type="datetime"
                                     name="salida"
                                     class="timepicker"
@@ -156,6 +159,7 @@
                             <div>
                                 <label for="llegada">Llegada</label>
                                 <input
+                                    id="tiemlleg"
                                     type="datetime"
                                     name="llegada"
                                     class="timepicker"
@@ -171,49 +175,49 @@
                                     <p>
                                         <!--Lunes-->
                                         <label>
-                                            <input type="checkbox">
+                                            <input id="chbLunes" type="checkbox">
                                             <span>Lunes</span>
                                         </label>
                                     </p>
                                     <p>
                                         <!--Martes-->
                                         <label>
-                                            <input type="checkbox">
+                                            <input  id="chbMartes" type="checkbox">
                                             <span>Martes</span>
                                         </label>
                                     </p>
                                     <p>
                                         <!--Miercoles-->
                                         <label>
-                                            <input type="checkbox">
+                                            <input id="chbMiercoles" type="checkbox">
                                             <span>Miércoles</span>
                                         </label>
                                     </p>
                                     <p>
                                         <!--Jueves-->
                                         <label>
-                                            <input type="checkbox">
+                                            <input id="chbJueves" type="checkbox">
                                             <span>Jueves</span>
                                         </label>
                                     </p>
                                     <p>
                                         <!--Viernes-->
                                         <label>
-                                            <input type="checkbox">
+                                            <input  id="chbViernes" type="checkbox">
                                             <span>Viernes</span>
                                         </label>
                                     </p>
                                     <p>
                                         <!--Sabado-->
                                         <label>
-                                            <input type="checkbox">
+                                            <input  id="chbSabado" type="checkbox">
                                             <span>Sábado</span>
                                         </label>
                                     </p>
                                     <p>
                                         <!--Domingo-->
                                         <label>
-                                            <input type="checkbox">
+                                            <input  id="chbDomingo" type="checkbox">
                                             <span>Domingo</span>
                                         </label>
                                     </p>
@@ -235,6 +239,7 @@
             <br>
         </form>
         <script src="js/login.js"></script>
+        <script src="js/ticorides.js"></script>
         <script>
                  document.addEventListener('DOMContentLoaded', function() {
                 // var elems = document.querySelectorAll('.sidenav');

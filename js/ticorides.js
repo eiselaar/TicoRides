@@ -39,8 +39,8 @@ function addRide() {
 
     if (!validarcampos(name_ride, startride, endride, descrip, existtime, arrivaltime)) {
 
-        if (!validarnombreride (name_ride)){
-              //validar los checkbox
+        if (!validarnombreride(name_ride, userlog)) {
+            //validar los checkbox
             if (Lunes || Martes || Miercoles || Jueves || Viernes || Sabado || Domingo) {
                 const rides = {
                     name: name_ride,
@@ -57,7 +57,7 @@ function addRide() {
                     Sabado: Sabado,
                     Domingo: Domingo,
                     usernameride: userlog
-    
+
                 }
                 ridesDB.push(rides);
                 localStorage.setItem('rides', JSON.stringify(ridesDB));
@@ -69,7 +69,7 @@ function addRide() {
         } else {
             window.alert('Este Nombre del Ride ya existe!, por favor ingresa uno diferente.');
         }
-        
+
 
     } else {
         window.alert('Algunos campos requeridos se encuentran vacíos');
@@ -78,12 +78,12 @@ function addRide() {
 
 }
 
-//Validar que el nombre del ride registrado sea unico, y que no exista
-function validarnombreride(name_ride) {
+//Validar que el nombre del ride registrado sea unico, y que no exista solomente en usuario logeado
+function validarnombreride(name_ride, username) {
 
     const ridesDB = JSON.parse(localStorage.getItem('rides'));
     if (ridesDB) {
-        let ride_name = ridesDB.find(rides => rides.name === name_ride);
+        let ride_name = ridesDB.find(rides => rides.name === name_ride && rides.usernameride === username);
 
         if (ride_name) {
             return true;
@@ -95,8 +95,35 @@ function validarnombreride(name_ride) {
     }
 
 }
-//funcion modificar ride
-function modify(){
+
+//funcion para carga info en editar ides
+function CargarEditarInfo(name_ride) {
+
+    let userlog = localStorage.getItem('userlog');
+    const ridesDB = JSON.parse(localStorage.getItem('rides'));
+    if (ridesDB) {
+        let ridesadd = ridesDB.find(rides => rides.name === name_ride && rides.usernameride === userlog);
+
+        if (ridesadd) {
+            document.getElementById('Nombre_Ride').value = ridesadd.name;
+            document.getElementById('Comienzo_Ride').value = ridesadd.startride;
+            document.getElementById('Fin_Ride').value = ridesadd.endride;
+            document.getElementById('descip_info').value = ridesadd.descrip;
+            document.getElementById('tiemsali').value = ridesadd.existtime;
+            document.getElementById('tiemlleg').value = ridesadd.arrivaltime;
+            document.getElementById('tiemsali').value = ridesadd.existtime;
+            document.getElementById('chbLunes').checked = ridesadd.Lunes;
+            document.getElementById('chbMartes').checked = ridesadd.Martes;
+            document.getElementById('chbMiercoles').checked = ridesadd.Miercoles;
+            document.getElementById('chbJueves').checked = ridesadd.Jueves;
+            document.getElementById('chbViernes').checked = ridesadd.Viernes;
+            document.getElementById('chbSabado').checked = ridesadd.Sabado;
+            document.getElementById('chbDomingo').checked = ridesadd.Domingo;
+
+        } else {
+            window.alert('No hay informacion resgistrada!');
+        }
+    }
 
 }
 
@@ -107,7 +134,7 @@ function modify(){
 //validar campos de html CONFIGURACIONES.
 
 function VCC(namecomplet, speed, descrip,) {
-    if (namecomplet.length == 0 || speed.length ==0 ||  descrip.length == 0 ) {
+    if (namecomplet.length == 0 || speed.length == 0 || descrip.length == 0) {
         return true;
     } else {
         return false;
@@ -115,42 +142,42 @@ function VCC(namecomplet, speed, descrip,) {
 }
 
 //Añadir configuraciones
-function addConfig(){
+function addConfig() {
 
-      //obtener rides
-      const name_complet = document.getElementById('nombrecomp_car').value;
-      const speed_car = document.getElementById('VelocidadMed_car').value;
-      const descrip_car = document.getElementById('descip_car').value;
-    
-  
-      //crear un objeto
-  
-      let userlog = localStorage.getItem('userlog');
-      let configrideDB = JSON.parse(localStorage.getItem('configride'));
-      if (!configrideDB) {
+    //obtener rides
+    const name_complet = document.getElementById('nombrecomp_car').value;
+    const speed_car = document.getElementById('VelocidadMed_car').value;
+    const descrip_car = document.getElementById('descip_car').value;
+
+
+    //crear un objeto
+
+    let userlog = localStorage.getItem('userlog');
+    let configrideDB = JSON.parse(localStorage.getItem('configride'));
+    if (!configrideDB) {
         configrideDB = [];
-      }
-      ///Apara buscar si este usario ya tiene datos guardados
-      let Confiuser= configrideDB.find(user => user.username === userlog);
+    }
+    ///Apara buscar si este usario ya tiene datos guardados
+    let Confiuser = configrideDB.find(user => user.username === userlog);
 
     // este if Actualiza sus datos ya tiene registrado datos y si no tiene los crea nuevos
-      if(Confiuser){
-         Confiuser.name_complet=name_complet;
-         Confiuser.speed_car=speed_car;
-         Confiuser.descrip_car=descrip_car;
+    if (Confiuser) {
+        Confiuser.name_complet = name_complet;
+        Confiuser.speed_car = speed_car;
+        Confiuser.descrip_car = descrip_car;
         // el nombre usario no se actualiza
-         localStorage.setItem('configride', JSON.stringify(configrideDB));
-         window.alert('Datos de configuracion actualizados exitosamente!!');
-         window.location = 'Tablero.html';
-        
-      } else{
-        if (!VCC(name_complet,speed_car,descrip_car)) {
+        localStorage.setItem('configride', JSON.stringify(configrideDB));
+        window.alert('Datos de configuracion actualizados exitosamente!!');
+        window.location = 'Tablero.html';
+
+    } else {
+        if (!VCC(name_complet, speed_car, descrip_car)) {
             const config = {
                 name_complet: name_complet,
                 speed_car: speed_car,
                 descrip_car: descrip_car,
                 username: userlog
-    
+
             }
             configrideDB.push(config);
             localStorage.setItem('configride', JSON.stringify(configrideDB));
@@ -159,7 +186,7 @@ function addConfig(){
         } else {
             window.alert('Algunos espacios quedaron en blanco, por favor verificar!');
         }
-      }
+    }
 
 }
 
@@ -171,20 +198,20 @@ function ConfigCarg() {
     let userlog = localStorage.getItem('userlog');
 
     let configrideDB = JSON.parse(localStorage.getItem('configride'));
-        if (!configrideDB) {
-           configrideDB = [];
-        }
-        
-        let Confiuseg = configrideDB.find(user => user.username === userlog);
+    if (!configrideDB) {
+        configrideDB = [];
+    }
 
-        if( Confiuseg){
-            document.getElementById('nombrecomp_car').value = Confiuseg.name_complet;
-            document.getElementById('VelocidadMed_car').value =Confiuseg.speed_car;
-            document.getElementById('descip_car').value = Confiuseg.descrip_car;
+    let Confiuseg = configrideDB.find(user => user.username === userlog);
 
-        } else{
-            window.alert('Este usuario no tiene información guardada');
-        }
+    if (Confiuseg) {
+        document.getElementById('nombrecomp_car').value = Confiuseg.name_complet;
+        document.getElementById('VelocidadMed_car').value = Confiuseg.speed_car;
+        document.getElementById('descip_car').value = Confiuseg.descrip_car;
+
+    } else {
+        window.alert('Este usuario no tiene información guardada');
+    }
 }
 
 
