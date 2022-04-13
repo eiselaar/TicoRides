@@ -78,6 +78,8 @@ function addRide() {
 
 }
 
+////////*************************************************/// */
+
 //Validar que el nombre del ride registrado sea unico, y que no exista solomente en usuario logeado
 function validarnombreride(name_ride, username) {
 
@@ -95,10 +97,11 @@ function validarnombreride(name_ride, username) {
     }
 
 }
+/////////////////*************/////////////////////////// /
 
-//funcion para carga info en editar ides
-function CargarEditarInfo(name_ride) {
-
+//funcion para carga info en editar rides
+function CargarEditarInfo() {
+    let name_ride = localStorage.getItem('RideEditar');
     let userlog = localStorage.getItem('userlog');
     const ridesDB = JSON.parse(localStorage.getItem('rides'));
     if (ridesDB) {
@@ -129,33 +132,41 @@ function CargarEditarInfo(name_ride) {
 
 }
 
+
+///////////************ CARGARR DATOS ************************////////////
+
 //Cargar tabla en Dashborard
 
 function CargarTableInfo() {
-
+  
     let ridesDB = JSON.parse(localStorage.getItem('rides'));
     let userlog = localStorage.getItem('userlog');
     if (!ridesDB) {
-        window.alert('Aun no se han registrado ride, por favor crear un ride!'); //Qiitar solo es de comprobacion
+        window.alert('Aun no se han registrado ride, por favor crear un ride en su cuenta!'); //Qiitar solo es de comprobacion
     } else {
         let Tablero = document.getElementById('tableroPri');
+         ///recorrer la tabla
+        for (let i =    0; i < ridesDB.length; i++) {
 
-        for (let i = 0; i < ridesDB.length; i++) {
-            if (ridesDB[i].userlog === userlog) {
+            if (ridesDB[i].usernameride === userlog) {
+
                 let newRideRowRef = Tablero.insertRow(-1);
 
                 newRideRowRef.setAttribute("nombreride", ridesDB[i].name);
-
+                 
+                ///nombre ride
                 let newCellRef = newRideRowRef.insertCell(0);
                 newCellRef.textContent = ridesDB[i].name;
-
+ 
+                 ///salida ride
                 newCellRef = newRideRowRef.insertCell(1);
                 newCellRef.textContent = ridesDB[i].startride;
 
+                ///llegada ride
                 newCellRef = newRideRowRef.insertCell(2);
                 newCellRef.textContent = ridesDB[i].endride;
 
-
+                ///botones editar y borrar
                 let newbuttonAcc = newRideRowRef.insertCell(3);
 
                 let editionBu = document.createElement("button");
@@ -165,27 +176,92 @@ function CargarTableInfo() {
                 deleteBu.textContent = "Eliminar";
 
                 newbuttonAcc.appendChild(editionBu);
+                newbuttonAcc.appendChild(deleteBu);
 
                 editionBu.addEventListener("click", (event) => {
                     let rideRow = event.target.parentNode.parentNode;
                     let tabla_rideName = rideRow.getAttribute("nombreride");
-                    editionBu(tabla_rideName);
+                    localStorage.setItem('RideEditar', tabla_rideName);
+                    window.location = 'EditarRide.html';
+                    
+                    
 
                 });
 
 
-                editionBu.addEventListener("click", (event) => {
+                /*deleteBu.addEventListener("click", (event) => {
                     let rideRow = event.target.parentNode.parentNode;
                     let tabla_rideName = rideRow.getAttribute("nombreride");
                     deleteRide(tabla_rideName);
 
-                });
+                });*/
 
             }
         }
     }
+}
+
+//funcion que modifica el ride
+function moficarinfo(){
+    const name_ride = document.getElementById('Nombre_Ride').value;
+    const startride = document.getElementById('Comienzo_Ride').value;
+    const endride = document.getElementById('Fin_Ride').value;
+    const descrip = document.getElementById('descip_info').value;
+    const existtime = document.getElementById('tiemsali').value;
+    const arrivaltime = document.getElementById('tiemlleg').value;
+    //  checkbox
+    let Lunes = document.getElementById('chbLunes').checked;
+    let Martes = document.getElementById('chbMartes').checked;
+    let Miercoles = document.getElementById('chbMiercoles').checked;
+    let Jueves = document.getElementById('chbJueves').checked;
+    let Viernes = document.getElementById('chbViernes').checked;
+    let Sabado = document.getElementById('chbSabado').checked;
+    let Domingo = document.getElementById('chbDomingo').checked;
+
+    let userlog = localStorage.getItem('userlog');
+    let ridesDB = JSON.parse(localStorage.getItem('rides'));
+    let name_rideedit = localStorage.getItem('RideEditar');
+    if (!ridesDB) {
+        ridesDB = [];
+    }
+
+    if (!validarcampos(name_ride, startride, endride, descrip, existtime, arrivaltime)) {
+
+        if (!validarnombreride(name_ride, userlog)) {
+            //validar los checkbox
+            if (Lunes || Martes || Miercoles || Jueves || Viernes || Sabado || Domingo) {
+                
+                let rideModi= ridesDB.find(rides => rides.name === name_rideedit && rides.usernameride === userlog);
+                if(rideModi){
+                    rideModi.name=  name_ride;
+                    rideModi.startride =startride;
+                    rideModi.endride = endride;
+                    rideModi.descrip = descrip;
+                    rideModi.existtime = existtime;
+                    rideModi.arrivaltime=arrivaltime;
+                    rideModi.Lunes=Lunes;
+                    rideModi.Martes=Martes;
+                    rideModi.Miercoles=Miercoles;
+                    rideModi.Jueves=Jueves;
+                    rideModi.Viernes=Viernes;
+                    rideModi.Sabado=Sabado;
+                    rideModi.Domingo=Domingo;
+                    localStorage.setItem('rides', JSON.stringify(ridesDB));
+                    window.alert('Ride Modificado con exito!');
+                    window.location = 'Tablero.html';
+                }
+               
+            } else {
+                window.alert('Debe seleccionar al menos un dia!');
+            }
+        } else {
+            window.alert('Este Nombre del Ride ya existe!, por favor ingresa uno diferente.');
+        }
 
 
+    } else {
+        window.alert('Algunos campos requeridos se encuentran vacíos');
+    }
 
 }
 
