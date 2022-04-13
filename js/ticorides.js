@@ -112,6 +112,8 @@ function CargarEditarInfo(name_ride) {
             document.getElementById('tiemsali').value = ridesadd.existtime;
             document.getElementById('tiemlleg').value = ridesadd.arrivaltime;
             document.getElementById('tiemsali').value = ridesadd.existtime;
+
+            //Checkbox
             document.getElementById('chbLunes').checked = ridesadd.Lunes;
             document.getElementById('chbMartes').checked = ridesadd.Martes;
             document.getElementById('chbMiercoles').checked = ridesadd.Miercoles;
@@ -124,6 +126,66 @@ function CargarEditarInfo(name_ride) {
             window.alert('No hay informacion resgistrada!');
         }
     }
+
+}
+
+//Cargar tabla en Dashborard
+
+function CargarTableInfo() {
+
+    let ridesDB = JSON.parse(localStorage.getItem('rides'));
+    let userlog = localStorage.getItem('userlog');
+    if (!ridesDB) {
+        window.alert('Aun no se han registrado ride, por favor crear un ride!'); //Qiitar solo es de comprobacion
+    } else {
+        let Tablero = document.getElementById('tableroPri');
+
+        for (let i = 0; i < ridesDB.length; i++) {
+            if (ridesDB[i].userlog === userlog) {
+                let newRideRowRef = Tablero.insertRow(-1);
+
+                newRideRowRef.setAttribute("nombreride", ridesDB[i].name);
+
+                let newCellRef = newRideRowRef.insertCell(0);
+                newCellRef.textContent = ridesDB[i].name;
+
+                newCellRef = newRideRowRef.insertCell(1);
+                newCellRef.textContent = ridesDB[i].startride;
+
+                newCellRef = newRideRowRef.insertCell(2);
+                newCellRef.textContent = ridesDB[i].endride;
+
+
+                let newbuttonAcc = newRideRowRef.insertCell(3);
+
+                let editionBu = document.createElement("button");
+                editionBu.textContent = "Editar";
+
+                let deleteBu = document.createElement("button");
+                deleteBu.textContent = "Eliminar";
+
+                newbuttonAcc.appendChild(editionBu);
+
+                editionBu.addEventListener("click", (event) => {
+                    let rideRow = event.target.parentNode.parentNode;
+                    let tabla_rideName = rideRow.getAttribute("nombreride");
+                    editionBu(tabla_rideName);
+
+                });
+
+
+                editionBu.addEventListener("click", (event) => {
+                    let rideRow = event.target.parentNode.parentNode;
+                    let tabla_rideName = rideRow.getAttribute("nombreride");
+                    deleteRide(tabla_rideName);
+
+                });
+
+            }
+        }
+    }
+
+
 
 }
 
