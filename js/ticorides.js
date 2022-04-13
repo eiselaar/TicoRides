@@ -189,12 +189,13 @@ function CargarTableInfo() {
                 });
 
 
-                /*deleteBu.addEventListener("click", (event) => {
+                deleteBu.addEventListener("click", (event) => {
                     let rideRow = event.target.parentNode.parentNode;
                     let tabla_rideName = rideRow.getAttribute("nombreride");
-                    deleteRide(tabla_rideName);
+                    rideRow.remove();
+                    eliminarride(tabla_rideName);
 
-                });*/
+                });
 
             }
         }
@@ -203,7 +204,9 @@ function CargarTableInfo() {
 
 //funcion que modifica el ride
 function moficarinfo(){
-    const name_ride = document.getElementById('Nombre_Ride').value;
+    modirconfi = window.confirm('¿Está seguro que desea editar el ride seleccionado?');
+    if (modirconfi) {
+        const name_ride = document.getElementById('Nombre_Ride').value;
     const startride = document.getElementById('Comienzo_Ride').value;
     const endride = document.getElementById('Fin_Ride').value;
     const descrip = document.getElementById('descip_info').value;
@@ -262,6 +265,29 @@ function moficarinfo(){
     } else {
         window.alert('Algunos campos requeridos se encuentran vacíos');
     }
+
+    }
+   
+}
+
+//Eliminar datos 
+
+function eliminarride(ElimiRide){
+
+    eliminarconfi = window.confirm('¿Está seguro que desea eliminar el ride seleccionado?');
+    if(  eliminarconfi){
+        let userlog = localStorage.getItem('userlog');
+        let ridesDB = JSON.parse(localStorage.getItem('rides'));
+    
+        let rideElimi= ridesDB.find(rides => rides.name === ElimiRide && rides.usernameride === userlog);
+    
+        ridesDB.splice(rideElimi,1);
+    
+        localStorage.setItem('rides', JSON.stringify(ridesDB));
+        window.alert('Ride Eliminado con exito!');
+    }
+   
+
 
 }
 
