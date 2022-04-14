@@ -19,7 +19,7 @@
         <!--  -->
         <!-- -->
     </head>
-    <body>
+    <body onload= "mostrarTablaInforIndex()">
         <form class="responsive-form">
             <div>
                 <!--Referencia a la pagina de logion -->
@@ -40,15 +40,15 @@
                     <form class="col s12">
                         <div class="row">
                             <div class="input-field col s2 ">
-                                <input id="icon_map" type="text" class="validate">
-                                <label for="icon_map">Desde</label>
+                                <input id="puntopartida" type="text" class="validate">
+                                <label for="puntopartida">Desde</label>
                             </div>
                                 <div class="input-field col s2">
-                                    <input id="icon_map" type="text" class="validate">
-                                    <label for="icon_map">Hasta</label>
+                                    <input id="destinollegada" type="text" class="validate">
+                                    <label for="destinollegada">Hasta</label>
                                 </div>
                                     <div class="input-field col s1">
-                                        <button class="btn waves-effect waves-light card-panel blue-grey"> Buscar Ride</button>
+                                        <button class="btn waves-effect waves-light card-panel blue-grey" onclick="buscarrides()"> Buscar Ride</button>
                                     </div>
                                 </div>
                             </div>
@@ -60,15 +60,16 @@
                     <h3 class="FuentePeque">Resultado de tu busqueda de Ride:</h3>
                     <div class="row">
                         <div class=" input-field col s8">
-                            <table class="striped responsive-table">
+                            <table id="tablaindex"class="striped responsive-table">
                                 <tr>
                                     <th>Usuario</th>
+                                    <th>Ride</th>
                                     <th>Informacion del Ride</th>
                                     <th>Punto de Partida</th>
                                     <th>Destino</th>
                                     <th>Hora de Salidad</th>
                                     <th>Hora de Llegada</th>
-                                    <th></th>
+                                    <th>Dias</th>
                                 </tr>
                             </table>
                         </div>
@@ -77,5 +78,6 @@
                 <br>
                 <br>
             </form>
+            <script src="js/ticorides.js"></script>
         </body>
     </html>

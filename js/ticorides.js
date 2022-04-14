@@ -138,27 +138,27 @@ function CargarEditarInfo() {
 //Cargar tabla en Dashborard
 
 function CargarTableInfo() {
-  
+
     let ridesDB = JSON.parse(localStorage.getItem('rides'));
     let userlog = localStorage.getItem('userlog');
     if (!ridesDB) {
         window.alert('Aun no se han registrado ride, por favor crear un ride en su cuenta!'); //Qiitar solo es de comprobacion
     } else {
         let Tablero = document.getElementById('tableroPri');
-         ///recorrer la tabla
-        for (let i =    0; i < ridesDB.length; i++) {
+        ///recorrer la tabla
+        for (let i = 0; i < ridesDB.length; i++) {
 
             if (ridesDB[i].usernameride === userlog) {
 
                 let newRideRowRef = Tablero.insertRow(-1);
 
                 newRideRowRef.setAttribute("nombreride", ridesDB[i].name);
-                 
+
                 ///nombre ride
                 let newCellRef = newRideRowRef.insertCell(0);
                 newCellRef.textContent = ridesDB[i].name;
- 
-                 ///salida ride
+
+                ///salida ride
                 newCellRef = newRideRowRef.insertCell(1);
                 newCellRef.textContent = ridesDB[i].startride;
 
@@ -183,8 +183,8 @@ function CargarTableInfo() {
                     let tabla_rideName = rideRow.getAttribute("nombreride");
                     localStorage.setItem('RideEditar', tabla_rideName);
                     window.location = 'EditarRide.html';
-                    
-                    
+
+
 
                 });
 
@@ -203,90 +203,90 @@ function CargarTableInfo() {
 }
 
 //funcion que modifica el ride
-function moficarinfo(){
+function moficarinfo() {
     modirconfi = window.confirm('¿Está seguro que desea editar el ride seleccionado?');
     if (modirconfi) {
         const name_ride = document.getElementById('Nombre_Ride').value;
-    const startride = document.getElementById('Comienzo_Ride').value;
-    const endride = document.getElementById('Fin_Ride').value;
-    const descrip = document.getElementById('descip_info').value;
-    const existtime = document.getElementById('tiemsali').value;
-    const arrivaltime = document.getElementById('tiemlleg').value;
-    //  checkbox
-    let Lunes = document.getElementById('chbLunes').checked;
-    let Martes = document.getElementById('chbMartes').checked;
-    let Miercoles = document.getElementById('chbMiercoles').checked;
-    let Jueves = document.getElementById('chbJueves').checked;
-    let Viernes = document.getElementById('chbViernes').checked;
-    let Sabado = document.getElementById('chbSabado').checked;
-    let Domingo = document.getElementById('chbDomingo').checked;
+        const startride = document.getElementById('Comienzo_Ride').value;
+        const endride = document.getElementById('Fin_Ride').value;
+        const descrip = document.getElementById('descip_info').value;
+        const existtime = document.getElementById('tiemsali').value;
+        const arrivaltime = document.getElementById('tiemlleg').value;
+        //  checkbox
+        let Lunes = document.getElementById('chbLunes').checked;
+        let Martes = document.getElementById('chbMartes').checked;
+        let Miercoles = document.getElementById('chbMiercoles').checked;
+        let Jueves = document.getElementById('chbJueves').checked;
+        let Viernes = document.getElementById('chbViernes').checked;
+        let Sabado = document.getElementById('chbSabado').checked;
+        let Domingo = document.getElementById('chbDomingo').checked;
 
-    let userlog = localStorage.getItem('userlog');
-    let ridesDB = JSON.parse(localStorage.getItem('rides'));
-    let name_rideedit = localStorage.getItem('RideEditar');
-    if (!ridesDB) {
-        ridesDB = [];
-    }
-
-    if (!validarcampos(name_ride, startride, endride, descrip, existtime, arrivaltime)) {
-
-        if (!validarnombreride(name_ride, userlog)) {
-            //validar los checkbox
-            if (Lunes || Martes || Miercoles || Jueves || Viernes || Sabado || Domingo) {
-                
-                let rideModi= ridesDB.find(rides => rides.name === name_rideedit && rides.usernameride === userlog);
-                if(rideModi){
-                    rideModi.name=  name_ride;
-                    rideModi.startride =startride;
-                    rideModi.endride = endride;
-                    rideModi.descrip = descrip;
-                    rideModi.existtime = existtime;
-                    rideModi.arrivaltime=arrivaltime;
-                    rideModi.Lunes=Lunes;
-                    rideModi.Martes=Martes;
-                    rideModi.Miercoles=Miercoles;
-                    rideModi.Jueves=Jueves;
-                    rideModi.Viernes=Viernes;
-                    rideModi.Sabado=Sabado;
-                    rideModi.Domingo=Domingo;
-                    localStorage.setItem('rides', JSON.stringify(ridesDB));
-                    window.alert('Ride Modificado con exito!');
-                    window.location = 'Tablero.html';
-                }
-               
-            } else {
-                window.alert('Debe seleccionar al menos un dia!');
-            }
-        } else {
-            window.alert('Este Nombre del Ride ya existe!, por favor ingresa uno diferente.');
+        let userlog = localStorage.getItem('userlog');
+        let ridesDB = JSON.parse(localStorage.getItem('rides'));
+        let name_rideedit = localStorage.getItem('RideEditar');
+        if (!ridesDB) {
+            ridesDB = [];
         }
 
+        if (!validarcampos(name_ride, startride, endride, descrip, existtime, arrivaltime)) {
 
-    } else {
-        window.alert('Algunos campos requeridos se encuentran vacíos');
+            if (!validarnombreride(name_ride, userlog)) {
+                //validar los checkbox
+                if (Lunes || Martes || Miercoles || Jueves || Viernes || Sabado || Domingo) {
+
+                    let rideModi = ridesDB.find(rides => rides.name === name_rideedit && rides.usernameride === userlog);
+                    if (rideModi) {
+                        rideModi.name = name_ride;
+                        rideModi.startride = startride;
+                        rideModi.endride = endride;
+                        rideModi.descrip = descrip;
+                        rideModi.existtime = existtime;
+                        rideModi.arrivaltime = arrivaltime;
+                        rideModi.Lunes = Lunes;
+                        rideModi.Martes = Martes;
+                        rideModi.Miercoles = Miercoles;
+                        rideModi.Jueves = Jueves;
+                        rideModi.Viernes = Viernes;
+                        rideModi.Sabado = Sabado;
+                        rideModi.Domingo = Domingo;
+                        localStorage.setItem('rides', JSON.stringify(ridesDB));
+                        window.alert('Ride Modificado con exito!');
+                        window.location = 'Tablero.html';
+                    }
+
+                } else {
+                    window.alert('Debe seleccionar al menos un dia!');
+                }
+            } else {
+                window.alert('Este Nombre del Ride ya existe!, por favor ingresa uno diferente.');
+            }
+
+
+        } else {
+            window.alert('Algunos campos requeridos se encuentran vacíos');
+        }
+
     }
 
-    }
-   
 }
 
 //Eliminar datos 
 
-function eliminarride(ElimiRide){
+function eliminarride(ElimiRide) {
 
     eliminarconfi = window.confirm('¿Está seguro que desea eliminar el ride seleccionado?');
-    if(  eliminarconfi){
+    if (eliminarconfi) {
         let userlog = localStorage.getItem('userlog');
         let ridesDB = JSON.parse(localStorage.getItem('rides'));
-    
-        let rideElimi= ridesDB.find(rides => rides.name === ElimiRide && rides.usernameride === userlog);
-    
-        ridesDB.splice(rideElimi,1);
-    
+
+        let rideElimi = ridesDB.find(rides => rides.name === ElimiRide && rides.usernameride === userlog);
+
+        ridesDB.splice(rideElimi, 1);
+
         localStorage.setItem('rides', JSON.stringify(ridesDB));
         window.alert('Ride Eliminado con exito!');
     }
-   
+
 
 
 }
@@ -378,5 +378,164 @@ function ConfigCarg() {
     }
 }
 
+//------------------------------------------------------------------------------------------------------//
 
+//// CARGAR LOS RIDES DE TODOS LOS USUARIO EN LA TABAL DEL LA PAGINA PRINCIPAL
+
+function mostrarTablaInforIndex() {
+    let ridesDB = JSON.parse(localStorage.getItem('rides'));
+
+    if (!ridesDB) {
+
+    } else {
+        let Tableroindex = document.getElementById('tablaindex');
+
+        for (let i = 0; i < ridesDB.length; i++) {
+            let newRideRowRef = Tableroindex.insertRow(-1);
+
+            // Nombre Usuario
+            let newCellRef = newRideRowRef.insertCell(0);
+            newCellRef.textContent = ridesDB[i].usernameride;
+
+            // Nombre Ride
+            newCellRef = newRideRowRef.insertCell(1);
+            newCellRef.textContent = ridesDB[i].name;
+
+            //Descripsion
+            newCellRef = newRideRowRef.insertCell(2);
+            newCellRef.textContent = ridesDB[i].descrip;
+
+            // Salidad
+            newCellRef = newRideRowRef.insertCell(3);
+            newCellRef.textContent = ridesDB[i].startride;
+
+            // Destino
+            newCellRef = newRideRowRef.insertCell(4);
+            newCellRef.textContent = ridesDB[i].endride;
+
+            //Hora de Salida
+            newCellRef = newRideRowRef.insertCell(5);
+            newCellRef.textContent = ridesDB[i].existtime;
+
+            //Hora de Llegada
+            newCellRef = newRideRowRef.insertCell(6);
+            newCellRef.textContent = ridesDB[i].arrivaltime;
+
+            let HD = ' ';
+
+            if (ridesDB[i].Lunes) {
+                HD = 'Lunes  '
+            } if (ridesDB[i].Martes) {
+                HD = HD + 'Martes  '
+            } if (ridesDB[i].Miercoles) {
+                HD = HD + 'Miércoles  '
+            } if (ridesDB[i].Jueves) {
+                HD = HD + 'Jueves  '
+            } if (ridesDB[i].Viernes) {
+                HD = HD + 'Viernes  '
+            } if (ridesDB[i].Sabado) {
+                HD = HD + 'Sábado  '
+            } if (ridesDB[i].Domingo) {
+                HD = HD + 'Domingo  '
+            }
+            //Dias
+            newCellRef = newRideRowRef.insertCell(7);
+            newCellRef.textContent = HD;
+
+
+
+
+        }
+    }
+}
+
+////BUSCAR POR PUNTO DE PARTIDA Y DESTINO UN RIDE EN EL TABLERO DE LA PAGINA PRINCIPAL
+function buscarrides() {
+
+    const puntopartida = document.getElementById('puntopartida').value;
+    const destinollegada = document.getElementById('destinollegada').value;
+
+    if (puntopartida.length == 0 || destinollegada == 0) {
+        window.alert('Un campo se encuentra vacio, por favor verificar!');
+    } else {
+        let ridesDB = JSON.parse(localStorage.getItem('rides'));
+        if (!ridesDB) {
+
+        } else {
+            //Recuperar el numero de filas
+            let Filas =document.getElementById('tablaindex').getElementsByTagName('tr').length;
+            let Tableroindex = document.getElementById('tablaindex');
+            //Esta funcion esta para eliminar los las filas de la tabla que no estan dentro de la busqueda del usuario
+            for(let i=1; i <= Filas; i++){
+                document.getElementById('tablaindex').deleteRow(1);
+            }
+            //Contador es para verficar los regitro , si segue en 0 vuelve a nostar los rides y encontro.
+            let contador=0;
+            for (let i = 0; i < ridesDB.length; i++) {
+                   // tolower es para poner toda la cadena de texto en minuscula
+                if (ridesDB[i].startride.toLowerCase() === puntopartida.toLowerCase() && ridesDB[i].endride.toLowerCase() === destinollegada.toLowerCase()) {
+                    let newRideRowRef = Tableroindex.insertRow(-1);
+
+                    // Nombre Usuario
+                    let newCellRef = newRideRowRef.insertCell(0);
+                    newCellRef.textContent = ridesDB[i].usernameride;
+
+                    // Nombre Ride
+                    newCellRef = newRideRowRef.insertCell(1);
+                    newCellRef.textContent = ridesDB[i].name;
+
+                    //Descripsion
+                    newCellRef = newRideRowRef.insertCell(2);
+                    newCellRef.textContent = ridesDB[i].descrip;
+
+                    // Salidad
+                    newCellRef = newRideRowRef.insertCell(3);
+                    newCellRef.textContent = ridesDB[i].startride;
+
+                    // Destino
+                    newCellRef = newRideRowRef.insertCell(4);
+                    newCellRef.textContent = ridesDB[i].endride;
+
+                    //Hora de Salida
+                    newCellRef = newRideRowRef.insertCell(5);
+                    newCellRef.textContent = ridesDB[i].existtime;
+
+                    //Hora de Llegada
+                    newCellRef = newRideRowRef.insertCell(6);
+                    newCellRef.textContent = ridesDB[i].arrivaltime;
+
+                    let HD = ' ';
+
+                    if (ridesDB[i].Lunes) {
+                        HD = 'Lunes  '
+                    } if (ridesDB[i].Martes) {
+                        HD = HD + 'Martes  '
+                    } if (ridesDB[i].Miercoles) {
+                        HD = HD + 'Miércoles  '
+                    } if (ridesDB[i].Jueves) {
+                        HD = HD + 'Jueves  '
+                    } if (ridesDB[i].Viernes) {
+                        HD = HD + 'Viernes  '
+                    } if (ridesDB[i].Sabado) {
+                        HD = HD + 'Sábado  '
+                    } if (ridesDB[i].Domingo) {
+                        HD = HD + 'Domingo  '
+                    }
+                    //Dias
+                    newCellRef = newRideRowRef.insertCell(7);
+                    newCellRef.textContent = HD;
+                    contador= contador+ 1;
+                }else{
+
+                }
+            }
+
+            if(contador===0){
+                window.alert('No hay ride hacia estos destinos!');
+                mostrarTablaInforIndex();
+            }
+        }
+    }
+
+}
 
