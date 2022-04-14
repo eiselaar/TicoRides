@@ -449,8 +449,9 @@ function mostrarTablaInforIndex() {
 ///////////************ JS BUSQUEDA DE RIDES POR UBICACION ************************////////////
 
 ////BUSCAR POR PUNTO DE PARTIDA Y DESTINO UN RIDE EN EL TABLERO DE LA PAGINA PRINCIPAL
-function buscarrides() {
 
+function buscarrides() {
+    
     const puntopartida = document.getElementById('puntopartida').value;
     const destinollegada = document.getElementById('destinollegada').value;
 
@@ -458,20 +459,21 @@ function buscarrides() {
         window.alert('Un campo se encuentra vacio, por favor verificar!');
     } else {
         let ridesDB = JSON.parse(localStorage.getItem('rides'));
+
         if (!ridesDB) {
 
         } else {
             //Recuperar el numero de filas
-            let Filas =document.getElementById('tablaindex').getElementsByTagName('tr').length;
+            let Filas = document.getElementById('tablaindex').getElementsByTagName('tr').length;
             let Tableroindex = document.getElementById('tablaindex');
             //Esta funcion esta para eliminar los las filas de la tabla que no estan dentro de la busqueda del usuario
-            for(let i=1; i <= Filas; i++){
+            for (let i = 1; i <= Filas; i++) {
                 document.getElementById('tablaindex').deleteRow(1);
             }
             //Contador es para verficar los regitro , si segue en 0 vuelve a nostar los rides y encontro.
-            let contador=0;
+            let contador = 0;
             for (let i = 0; i < ridesDB.length; i++) {
-                   // tolower es para poner toda la cadena de texto en minuscula
+                // tolower es para poner toda la cadena de texto en minuscula
                 if (ridesDB[i].startride.toLowerCase() === puntopartida.toLowerCase() && ridesDB[i].endride.toLowerCase() === destinollegada.toLowerCase()) {
                     let newRideRowRef = Tableroindex.insertRow(-1);
 
@@ -523,13 +525,13 @@ function buscarrides() {
                     //Dias
                     newCellRef = newRideRowRef.insertCell(7);
                     newCellRef.textContent = HD;
-                    contador= contador+ 1;
-                }else{
+                    contador = contador + 1;
+                } else {
 
                 }
             }
 
-            if(contador===0){
+            if (contador === 0) {
                 window.alert('No hay ride hacia estos destinos!');
                 mostrarTablaInforIndex();
             }
