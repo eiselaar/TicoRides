@@ -451,7 +451,7 @@ function mostrarTablaInforIndex() {
 ////BUSCAR POR PUNTO DE PARTIDA Y DESTINO UN RIDE EN EL TABLERO DE LA PAGINA PRINCIPAL
 
 function buscarrides() {
-    
+
     const puntopartida = document.getElementById('puntopartida').value;
     const destinollegada = document.getElementById('destinollegada').value;
 
@@ -464,7 +464,7 @@ function buscarrides() {
 
         } else {
             //Recuperar el numero de filas
-            let Filas = document.getElementById('tablaindex').getElementsByTagName('tr').length;
+            let Filas = document.getElementById('tablaindex').getElementsByTagName('tr').length -1;
             let Tableroindex = document.getElementById('tablaindex');
             //Esta funcion esta para eliminar los las filas de la tabla que no estan dentro de la busqueda del usuario
             for (let i = 1; i <= Filas; i++) {
