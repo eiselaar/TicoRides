@@ -28,6 +28,29 @@ function validarnombreride(name_ride, username) {
 
 }
 
+function validarnombrerideEdit(name_ride, username) {
+    let name_rideloca = localStorage.getItem('RideEditar');
+
+    const ridesDB = JSON.parse(localStorage.getItem('rides'));
+    if (ridesDB) {
+        let ride_name = ridesDB.find(rides => rides.name === name_ride && rides.usernameride === username);
+         if(name_rideloca===name_ride){
+             return false;
+         }else{
+            if (ride_name) {
+                return true;
+            } else {
+                return false;
+            }
+         }
+        
+    } else {
+        return false;
+    }
+
+}
+
+
 //// VALIDAR CAMPOS DE LA PAGINA DE CONFIGURACIONES
 
 function VCC(namecomplet, speed, descrip,) {
@@ -139,7 +162,7 @@ function moficarinfo() {
 
         if (!validarcampos(name_ride, startride, endride, descrip, existtime, arrivaltime)) {
 
-            if (!validarnombreride(name_ride, userlog)) {
+            if (!validarnombrerideEdit(name_ride, userlog)) {
                 //validar los checkbox
                 if (Lunes || Martes || Miercoles || Jueves || Viernes || Sabado || Domingo) {
 
