@@ -1,4 +1,4 @@
-//validar campos vacios
+//// VALIDAR CAMPOS VACIOS
 function validarcampos(firstname, lastname, phone, user, password, newpassword) {
     if (firstname.length == 0 || lastname.length == 0 || phone.length == 0 || user.length == 0 || password.length == 0 || newpassword.length == 0) {
         return false;
@@ -7,7 +7,7 @@ function validarcampos(firstname, lastname, phone, user, password, newpassword) 
     }
 }
 
-//Fuction to add users
+//// AÑADIR USUARIOS
 function addUser() {
     //obtener los valores de cada input
     const firstname = document.getElementById('inputFirstName').value;
@@ -61,6 +61,7 @@ function addUser() {
   
 }
 
+//// ID DE LOS USUARIOS
 function autoincremental() {
     //leer los datos de los usuarios del local storage
     const users = JSON.parse(localStorage.getItem('users'));
@@ -79,7 +80,7 @@ function autoincremental() {
     return id + 1;
 }
 
-//Validar que el usuario registrado sea unico, y que no exista
+//// VALIDAR QUE EL USUARIO SEA UNICO, Y QUE NO ALLA OTRO REGISTRADO CON ESE NOMVRE
 function validarUsuario(username) {
 
     const usersDB = JSON.parse(localStorage.getItem('users'));
@@ -97,6 +98,7 @@ function validarUsuario(username) {
 
 }
 
+//// VALIDAR QUE AMBAS CONTRASEÑAS SEAN IGUALES
 function validarpass(newpassword){
     const usersDB = JSON.parse(localStorage.getItem('users'));
     if (usersDB) {
@@ -113,7 +115,7 @@ function validarpass(newpassword){
 }
 
 
-//funcion para validar que el usuario se encuentra registrado en la localstore
+//// VALIDAR QUE EL USUARIO SE ENCUENTRE RESGITRADO EN EL LOCALSTORE
 function validarusuario() {
     //obtner los datos ingresados por el usuario
     const username = document.getElementById('user').value;
@@ -137,17 +139,17 @@ function validarusuario() {
 
 
 
-//funcion para saber que usario esta loggeado localstore
+////PARA SABER SI EL USUARIO SE ENCUENTRA LOGEADO
 function saveLogUser(user_name) {
     localStorage.setItem('userlog', user_name);
 }
 
-// Presentar el nombre del usuario en en la bienvenida de tablero, ride y config
+////PRESENTAR EL NOMBRE DEL USUARIO LOEGADO EN TABLERO, RIDE Y CONFIG
 function Nameloger() {
     document.getElementById('user_name').innerHTML=localStorage.getItem('userlog');
 }
 
-//cerrar sesion del usuario
+////CERRAR SECION
 function singout(){
     response = window.confirm('¿Está seguro que desea cerrar la sesión?');
     if(response){
