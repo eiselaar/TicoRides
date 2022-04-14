@@ -490,7 +490,7 @@ function buscarrides() {
             let Filas = document.getElementById('tablaindex').getElementsByTagName('tr').length -1;
             let Tableroindex = document.getElementById('tablaindex');
             //Esta funcion esta para eliminar los las filas de la tabla que no estan dentro de la busqueda del usuario
-            for (let i = 1; i <= Filas; i++) {
+            for (let i = 0; i < Filas; i++) {
                 document.getElementById('tablaindex').deleteRow(1);
             }
             //Contador es para verficar los regitro , si segue en 0 vuelve a nostar los rides y encontro.
