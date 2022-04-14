@@ -15,31 +15,36 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body onload=" CargarTableInfo(), Nameloger()">
-
-        <div class="row"> 
+        <div class="row">
             <div class="col s8 m12"></div>
             <div class="navbar-fixed">
-             <nav class="blue-grey">
-                 <div class="nav-wrapper container">
-                     <a href="#" class="brand-logo right"></a>    <!--Logo -->
-                     <ul class="left">
-                         <li>
-                             <a href="Tablero.html">Tablero</a> <!--Tablero-->
-                         </li>
-                         <li>
-                             <a href="AñadirRide.html">Rides</a><!--Ride -->
-                         </li>
-                         <li>
-                             <a href="Configuraciones.html">Configuraciones</a> <!--Configuraciones--> 
-                         </li>
-                         <li>
-                             <a onclick="singout()"><i class="material-icons">exit_to_app</i></a>     <!--Cerrar Secion-->
-                             
-                         </li>
-                     </ul>
-                 </div>
-             </nav>
-         </div>
+                <nav class="blue-grey">
+                    <div class="nav-wrapper container">
+                        <a href="#" class="brand-logo right"></a>
+                        <!--Logo -->
+                        <ul class="left">
+                            <li>
+                                <a href="Tablero.html">Tablero</a>
+                                <!--Tablero-->
+                            </li>
+                            <li>
+                                <a href="AñadirRide.html">Rides</a>
+                                <!--Ride -->
+                            </li>
+                            <li>
+                                <a href="Configuraciones.html">Configuraciones</a>
+                                <!--Configuraciones-->
+                            </li>
+                            <li>
+                                <a onclick="singout()">
+                                    <i class="material-icons">exit_to_app</i>
+                                </a>
+                                <!--Cerrar Secion-->
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
         </div>
         <!-- Imagen-->
         <div>
@@ -87,17 +92,16 @@
         <br>
         <br>
         <div>
-            <fieldset class="responsive-field">
-                <h4 class="FuentePeque">Tu lista actual de viajes</h4>
-                    <div class="row">
-                       
-                        <div class=" input-field col s8">
-                            <p align="right">
-                                <a class="btn-floating btn-large waves-effect waves-light light-green lighten-2" href="AñadirRide.html">
-                                    <i class="material-icons">add</i>
-                                </a>
-                                </p>
-                        <table id="tableroPri" class="centered highlight">
+            <form>
+                <span class=" FuentePeque">Tu lista actual de viajes</span>
+                <div class="row">
+                    <div class=" input-field col s8">
+                        <p align="right">
+                            <a class="btn-floating btn-large waves-effect waves-light light-green lighten-2" href="AñadirRide.html">
+                                <i class="material-icons">add</i>
+                            </a>
+                        </p>
+                        <table id="tableroPri" class="centered highlight striped light-blue lighten-5">
                             <tr>
                                 <th>Nombre</th>
                                 <th>Punto de Partida</th>
@@ -111,19 +115,18 @@
                             </a>
                         </p>
                     </div>
-            </fieldset>
-        </div>
-    </form>
-    <br>
-    <br>
-    <script src="js/login.js"></script>
-    <script src="js/ticorides.js"></script>
-    <script>
+                </div>
+            </form>
+            <br>
+            <br>
+            <script src="js/login.js"></script>
+            <script src="js/ticorides.js"></script>
+            <script>
          document.addEventListener('DOMContentLoaded', function() {
         // var elems = document.querySelectorAll('.sidenav');
         // var instances = M.Sidenav.init(elems);
         M.AutoInit();
       });
-    </script>
-</body>
-</html>
+            </script>
+        </body>
+    </html>
