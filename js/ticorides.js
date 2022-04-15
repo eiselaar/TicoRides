@@ -316,12 +316,12 @@ function CargarTableInfo() {
     let ridesDB = JSON.parse(localStorage.getItem('rides'));
     let userlog = localStorage.getItem('userlog');
     if (!ridesDB) {
-        window.alert('Aun no se han registrado ride, por favor crear un ride en su cuenta!'); //QUITAR solo es de comprobacion
+        window.alert('Aun no se han registrado ride, por favor crear un ride en su cuenta!'); //quitar (solo es de comprobacion)
     } else {
         let Tablero = document.getElementById('tableroPri');
         ///recorrer la tabla
         for (let i = 0; i < ridesDB.length; i++) {
-
+            //Cargar la tabla con cada ride conrespondiente al usuario
             if (ridesDB[i].usernameride === userlog) {
 
                 let newRideRowRef = Tablero.insertRow(-1);
@@ -352,6 +352,7 @@ function CargarTableInfo() {
                 newbuttonAcc.appendChild(editionBu);
                 newbuttonAcc.appendChild(deleteBu);
 
+                //evento el boton de editar en la tabla,aqui cargamos los datos espeficios del ride y los editamos
                 editionBu.addEventListener("click", (event) => {
                     let rideRow = event.target.parentNode.parentNode;
                     let tabla_rideName = rideRow.getAttribute("nombreride");
@@ -361,8 +362,7 @@ function CargarTableInfo() {
 
 
                 });
-
-
+                 //evento para el boton eliminar en la tabla, aqui se elimina por el nombre del ride
                 deleteBu.addEventListener("click", (event) => {
                     let rideRow = event.target.parentNode.parentNode;
                     let tabla_rideName = rideRow.getAttribute("nombreride");
@@ -384,7 +384,7 @@ function ConfigCarg() {
     if (!configrideDB) {
         configrideDB = [];
     }
-
+    // si el usuario ya tiene infromacion en configuraciones le permita cambiarla y de lo contario le diga que no tiene info.
     let Confiuseg = configrideDB.find(user => user.username === userlog);
 
     if (Confiuseg) {
@@ -438,7 +438,7 @@ function mostrarTablaInforIndex() {
             //Hora de Llegada
             newCellRef = newRideRowRef.insertCell(6);
             newCellRef.textContent = ridesDB[i].arrivaltime;
-
+            //if para saber que dia es o son true y lo cargue en tabla 
             let HD = ' ';
 
             if (ridesDB[i].Lunes) {
@@ -478,9 +478,11 @@ function buscarrides() {
     const puntopartida = document.getElementById('puntopartida').value;
     const destinollegada = document.getElementById('destinollegada').value;
 
+    //validar que alla ingresado las dos ubicaciones,y si no le mande un msj
     if (puntopartida.length == 0 || destinollegada == 0) {
         window.alert('Un campo se encuentra vacio, por favor verificar!');
     } else {
+        //filtrado de rides
         let ridesDB = JSON.parse(localStorage.getItem('rides'));
 
         if (!ridesDB) {
@@ -493,7 +495,7 @@ function buscarrides() {
             for (let i = 0; i < Filas; i++) {
                 document.getElementById('tablaindex').deleteRow(1);
             }
-            //Contador es para verficar los regitro , si segue en 0 vuelve a nostar los rides y encontro.
+            //Contador: para verficar los regitro , si sigue en 0 vuelve a mostar los rides , y si encontro solo muestra los de la ubicacion ingresada
             let contador = 0;
             for (let i = 0; i < ridesDB.length; i++) {
                 // tolower es para poner toda la cadena de texto en minuscula
@@ -528,6 +530,7 @@ function buscarrides() {
                     newCellRef = newRideRowRef.insertCell(6);
                     newCellRef.textContent = ridesDB[i].arrivaltime;
 
+                    //if para saber que dias son true
                     let HD = ' ';
 
                     if (ridesDB[i].Lunes) {
@@ -545,15 +548,18 @@ function buscarrides() {
                     } if (ridesDB[i].Domingo) {
                         HD = HD + 'Domingo  '
                     }
+
                     //Dias
                     newCellRef = newRideRowRef.insertCell(7);
                     newCellRef.textContent = HD;
+                    //Contador de ride filtrado
                     contador = contador + 1;
+                   
                 } else {
 
                 }
             }
-
+            //Si sigue en 0, manda un msj al usuario dicendole que no hay ride en ese destino
             if (contador === 0) {
                 window.alert('No hay ride hacia estos destinos!');
                 mostrarTablaInforIndex();
