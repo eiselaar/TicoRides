@@ -204,21 +204,15 @@ function moficarinfo() {
 
 //// ELIMINAR RIDES
 function eliminarride(ElimiRide) {
+    let userlog = localStorage.getItem('userlog');
+    let ridesDB = JSON.parse(localStorage.getItem('rides'));
 
-    eliminarconfi = window.confirm('¿Está seguro que desea eliminar el ride seleccionado?');
-    if (eliminarconfi) {
-        let userlog = localStorage.getItem('userlog');
-        let ridesDB = JSON.parse(localStorage.getItem('rides'));
+    let rideElimi = ridesDB.find(rides => rides.name === ElimiRide && rides.usernameride === userlog);
 
-        let rideElimi = ridesDB.find(rides => rides.name === ElimiRide && rides.usernameride === userlog);
+    ridesDB.splice(rideElimi, 1);
 
-        ridesDB.splice(rideElimi, 1);
-
-        localStorage.setItem('rides', JSON.stringify(ridesDB));
-        window.alert('Ride Eliminado con exito!');
-    }
-
-
+    localStorage.setItem('rides', JSON.stringify(ridesDB));
+    window.alert('Ride Eliminado con exito!');
 
 }
 
@@ -354,6 +348,7 @@ function CargarTableInfo() {
 
                 //evento el boton de editar en la tabla,aqui cargamos los datos espeficios del ride y los editamos
                 editionBu.addEventListener("click", (event) => {
+                    event.preventDefault();
                     let rideRow = event.target.parentNode.parentNode;
                     let tabla_rideName = rideRow.getAttribute("nombreride");
                     localStorage.setItem('RideEditar', tabla_rideName);
@@ -365,9 +360,13 @@ function CargarTableInfo() {
                  //evento para el boton eliminar en la tabla, aqui se elimina por el nombre del ride
                 deleteBu.addEventListener("click", (event) => {
                     let rideRow = event.target.parentNode.parentNode;
-                    let tabla_rideName = rideRow.getAttribute("nombreride");
-                    rideRow.remove();
-                    eliminarride(tabla_rideName);
+                    eliminarconfi = window.confirm('¿Está seguro que desea eliminar el ride seleccionado?');
+                    if (eliminarconfi) {
+                        let tabla_rideName = rideRow.getAttribute("nombreride");
+                        rideRow.remove();
+                        eliminarride(tabla_rideName);     
+                    }
+                 
 
                 });
 
