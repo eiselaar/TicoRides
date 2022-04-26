@@ -27,7 +27,7 @@ function validarnombreride(name_ride, username) {
     }
 
 }
-
+///VALIDACION DEL NOMBRE EN EN EDITAR RIDE
 function validarnombrerideEdit(name_ride, username) {
     let name_rideloca = localStorage.getItem('RideEditar');
 
@@ -60,6 +60,7 @@ function VCC(namecomplet, speed, descrip,) {
         return false;
     }
 }
+
 
 //------------------------------------------------------------------------------------------------------//
 
