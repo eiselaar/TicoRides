@@ -133,7 +133,7 @@ function addRide() {
     }
 
 }
-
+///////////
 
 ////MOFIFICAR LOS DATOS DEL RIDE
 function moficarinfo() {
